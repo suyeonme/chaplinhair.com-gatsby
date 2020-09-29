@@ -5,7 +5,8 @@ import reset from 'styled-reset';
 import 'normalize.css';
 import GlobalFonts from 'fonts/fonts';
 
-import Header from 'components/Header/Header';
+import Header from 'components/Layout/Header/Header';
+import Footer from 'components/Layout/Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -59,6 +60,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <GlobalFonts />
       {children}
+      <Footer />
     </>
   );
 };
