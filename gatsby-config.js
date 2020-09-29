@@ -1,10 +1,20 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
-  plugins: [],
-}
+  plugins: [
+    'gatsby-plugin-resolve-src',
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: 'Poppins',
+            variants: [`200`, `400`, `600`, `800`],
+          },
+          {
+            family: `Permanent Marker`,
+          },
+        ],
+      },
+    },
+  ],
+};
