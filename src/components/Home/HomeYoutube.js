@@ -1,16 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Woman from 'assets/icons/youtube-1.png';
-import Man from 'assets/icons/youtube-2.png';
-
 import YoutubeImg from 'assets/img/youtube-profile.jpg';
 import { TitleH1, CategoryH4, Container } from 'styles/style';
 
 const Wrapper = styled(Container)`
-  padding: 6rem 16rem;
-
-  position: relative;
+  padding: 3rem 16rem;
 `;
 
 const ProfileContainer = styled.a`
@@ -47,23 +42,6 @@ const VideoContainer = styled.div`
   }
 `;
 
-const WomanIcon = styled.img`
-  position: absolute;
-  width: 10rem;
-  height: 10rem;
-  top: 5rem;
-  left: 9rem;
-  transform: rotate(-9deg);
-`;
-
-const ManIcon = styled.img`
-  position: absolute;
-  width: 9rem;
-  height: 9rem;
-  bottom: 3rem;
-  right: 5rem;
-`;
-
 const HomeYoutube = () => {
   return (
     <Wrapper bgColor="black" color="#F6F3EC">
@@ -89,9 +67,6 @@ const HomeYoutube = () => {
           mozallowfullscreen="true"
         ></iframe>
       </VideoContainer>
-
-      <WomanIcon src={Woman} alt="찰리의 미용tv" />
-      <ManIcon src={Man} alt="찰리의 미용tv" />
     </Wrapper>
   );
 };

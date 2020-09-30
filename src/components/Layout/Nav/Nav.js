@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { Link } from 'gatsby';
-// Link to home on Logo
+import { Link } from 'gatsby';
 
 import ChaplinLogo from 'assets/icons/logo.png';
 import HamburgerMenu from 'components/Layout/Nav/HamburgerMenu';
@@ -15,6 +14,10 @@ const NavContainer = styled.nav`
   padding: 0.8rem 1rem;
 `;
 
+const StyledLink = styled(Link)`
+  width: 16%;
+`;
+
 const LogoContainer = styled.div`
   flex: 1;
   display: flex;
@@ -22,14 +25,16 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 16%;
+  width: 100%;
 `;
 
 const Header = () => {
   return (
     <NavContainer>
       <LogoContainer>
-        <Logo src={ChaplinLogo} />
+        <StyledLink to="/">
+          <Logo src={ChaplinLogo} />
+        </StyledLink>
       </LogoContainer>
       <HamburgerMenu />
     </NavContainer>

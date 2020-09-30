@@ -9,7 +9,7 @@ export const TitleH1 = styled.h1`
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 0.1rem;
+  letter-spacing: 2px;
   color: inherit;
   padding: 1rem 0;
 `;
@@ -26,7 +26,7 @@ export const CategoryH4 = styled.h4`
 export const Container = styled.section`
   width: 100%;
   height: auto;
-  padding: 6rem 3rem;
+  padding: 3rem 3rem;
   color: ${(props) => props.color};
   background-color: ${(props) => props.bgColor};
 `;

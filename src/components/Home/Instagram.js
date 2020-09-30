@@ -5,7 +5,7 @@ import WomanIcon from 'assets/icons/instagram-1.png';
 import ManIcon from 'assets/icons/instagram-2.png';
 
 import { CategoryH4, Container } from 'styles/style';
-import { CircleBtn } from 'components/Buttons/Buttons';
+import { PrimaryBtn } from 'components/Buttons/Buttons';
 
 const IconContainer = styled.div`
   margin-top: 3rem;
@@ -22,6 +22,10 @@ const Title = styled.h2`
   font-size: 2.2rem;
   letter-spacing: 0.2rem;
   padding: 3rem 0;
+
+  span {
+    font-weight: 600;
+  }
 `;
 
 const Instagram = () => {
@@ -31,8 +35,10 @@ const Instagram = () => {
       <IconContainer>
         <Icon src={WomanIcon} alt="Woman Icon" />
         <Icon src={ManIcon} alt="Man Icon" />
-        <Title>Follow us on Instagram</Title>
-        <CircleBtn url="https://www.instagram.com/chaplin__hair/" />
+        <Title>
+          Follow us on <span>Instagram</span>
+        </Title>
+        <PrimaryBtn url="https://www.instagram.com/chaplin__hair/" />
       </IconContainer>
     </Container>
   );

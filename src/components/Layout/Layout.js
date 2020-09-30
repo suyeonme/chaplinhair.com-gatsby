@@ -27,18 +27,22 @@ const GlobalStyle = createGlobalStyle`
     overscroll-behavior: smooth;
     color: black;
   }
+
   a{
     text-decoration:none;
     color:inherit;
     cursor: pointer;
   }
+
   ul, li {
     list-style: none;
   }
+
   img, video {
     width: 100%;
     height: 100%;
   }
+
   button {
     color: inherit; 
     font-family: inherit; 
@@ -50,6 +54,19 @@ const GlobalStyle = createGlobalStyle`
   ::selection {
     background-color: #B8AC79;
     color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+  width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background:  #B8AC79;
+    border-radius: 20px;
   }
 `;
 

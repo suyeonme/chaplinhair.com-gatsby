@@ -5,6 +5,7 @@ import Image from 'assets/img/interview.jpg';
 import { CategoryH4, Container } from 'styles/style';
 
 const InterviewContainer = styled(Container)`
+  padding: 6rem 3rem;
   display: flex;
   justify-content: space-between;
 `;
