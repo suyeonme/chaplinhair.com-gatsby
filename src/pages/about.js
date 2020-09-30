@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from 'components/Layout/Layout';
 import SubHeader from 'components/Layout/Header/SubHeader';
 import AboutUs from 'components/About/AboutUs';
+import CEOMessage from 'components/About/CEOMessage';
 
 const AboutPage = () => {
   const headerObj = {
@@ -16,6 +17,7 @@ const AboutPage = () => {
       <SubHeader {...headerObj} />
       <main>
         <AboutUs />
+        <CEOMessage />
       </main>
     </Layout>
   );

@@ -73,7 +73,7 @@ const Footer = () => {
           return (
             <SocialContainer key={i}>
               <SocialIcon src={social.icon} />
-              <a href={social.url} target="_blank">
+              <a href={social.url} target="_blank" rel="noopener noreferrer">
                 <span>{social.iconTitle}</span>
               </a>
             </SocialContainer>

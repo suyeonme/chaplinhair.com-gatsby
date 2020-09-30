@@ -14,10 +14,10 @@
     url('./Spoqa Han Sans Light.woff') format('woff');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Spoqa Han Sans';
   font-style: normal;
   font-weight: 100;
   src: url('./Spoqa Han Sans Thin.woff2'),
     url('./Spoqa Han Sans Thin.woff') format('woff');
-}
+} */

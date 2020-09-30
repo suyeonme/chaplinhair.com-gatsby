@@ -65,6 +65,7 @@ const HomeYoutube = () => {
           allowFullScreen="true"
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
+          title="채플린 헤어 유튜브 채널, 찰리의 미용tv"
         ></iframe>
       </VideoContainer>
     </Wrapper>
