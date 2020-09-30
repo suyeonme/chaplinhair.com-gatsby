@@ -11,8 +11,12 @@ module.exports = {
             variants: [`200`, `400`, `600`, `800`],
           },
           {
-            family: `Permanent Marker`,
+            family: `Playfair Display`,
+            variants: [`500`],
           },
+          // {
+          //   family: `Permanent Marker`,
+          // },
         ],
       },
     },

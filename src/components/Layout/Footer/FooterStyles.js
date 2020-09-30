@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   width: 100%;
   height: 60vh;
   background-color: black;
-  color: white;
-
+  color: #f6f3ec;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,15 +18,15 @@ export const Logo = styled.img`
 `;
 
 export const ItemsContainer = styled.div`
-  width: 80%;
+  width: 75%;
   display: flex;
   justify-content: space-between;
 `;
 
 export const SocialIcon = styled.img`
-  width: 1rem;
-  height: 1rem;
-  margin-right: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.7rem;
 `;
 
 export const Item = styled.div`
@@ -46,7 +45,7 @@ export const Item = styled.div`
     line-height: 1.3;
     opacity: 0.7;
     font-weight: 100;
-    cursor: default;
+    cursor: pointer;
     transition: all 0.2s ease-in;
     margin-bottom: 0.5rem;
 

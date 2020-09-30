@@ -6,16 +6,16 @@ import Youtube from 'assets/icons/youtube.svg';
 import Naver from 'assets/icons/naver.svg';
 
 import {
-  FooterContainer,
   Logo,
-  ItemsContainer,
   Item,
-  SocialContainer,
   SocialIcon,
+  FooterContainer,
+  ItemsContainer,
+  SocialContainer,
 } from 'components/Layout/Footer/FooterStyles';
 
 const Footer = () => {
-  const items = [
+  const info = [
     {
       title: 'Contact Us',
       tel: 'Tel: 062-262-4325',
@@ -43,7 +43,7 @@ const Footer = () => {
     { icon: Naver, iconTitle: 'Blog', url: 'https://blog.naver.com/ckffl4325' },
   ];
 
-  const info = items.map((item, i) => {
+  const infoItems = info.map((item, i) => {
     return (
       <Item key={i}>
         <h3>{item.title}</h3>
@@ -87,7 +87,7 @@ const Footer = () => {
     <FooterContainer>
       <Logo src={ChaplinIcon} />
       <ItemsContainer>
-        {info}
+        {infoItems}
         {socialItems}
       </ItemsContainer>
       <p>© Copyright {new Date().getFullYear()} by Chplin Hair</p>

@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 import 'normalize.css';
-import GlobalFonts from 'fonts/fonts';
+import 'fonts/fonts.css';
 
-import Header from 'components/Layout/Header/Header';
+import Nav from 'components/Layout/Nav/Nav';
 import Footer from 'components/Layout/Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     font-size: 62.5%;
-    font-family: 'Spoqa Han Sans', 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Spoqa Han Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
     overscroll-behavior: smooth;
@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   ul, li {
     list-style: none;
   }
-  img {
+  img, video {
     width: 100%;
     height: 100%;
   }
@@ -56,9 +56,8 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
+      <Nav />
       <GlobalStyle />
-      <GlobalFonts />
       {children}
       <Footer />
     </>
