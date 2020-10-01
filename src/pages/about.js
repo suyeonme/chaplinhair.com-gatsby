@@ -4,6 +4,7 @@ import Layout from 'components/Layout/Layout';
 import SubHeader from 'components/Layout/Header/SubHeader';
 import AboutUs from 'components/About/AboutUs';
 import CEOMessage from 'components/About/CEOMessage';
+import Feature from 'components/About/Feature';
 
 const AboutPage = () => {
   const headerObj = {
@@ -18,6 +19,7 @@ const AboutPage = () => {
       <main>
         <AboutUs />
         <CEOMessage />
+        <Feature />
       </main>
     </Layout>
   );
