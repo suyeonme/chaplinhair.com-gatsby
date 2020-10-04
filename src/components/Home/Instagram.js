@@ -18,7 +18,7 @@ const Icon = styled.img`
 `;
 
 const Title = styled.h2`
-  font-family: Permanent Marker;
+  font-family: Playfair Display;
   font-size: 2.2rem;
   letter-spacing: 0.2rem;
   padding: 3rem 0;

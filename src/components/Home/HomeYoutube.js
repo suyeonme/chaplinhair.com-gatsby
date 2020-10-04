@@ -60,9 +60,9 @@ const HomeYoutube = () => {
           width="560"
           height="315"
           src="https://www.youtube.com/embed/AZHwLvx3rUc"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen="true"
+          allowFullScreen={true}
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
           title="채플린 헤어 유튜브 채널, 찰리의 미용tv"

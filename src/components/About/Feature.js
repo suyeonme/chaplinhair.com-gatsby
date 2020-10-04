@@ -61,8 +61,8 @@ const TextContainer = styled.div`
 `;
 
 const FeatureCell = ({ arr }) => {
-  return arr.map((el) => (
-    <Cell>
+  return arr.map((el, i) => (
+    <Cell key={i}>
       <CellContainer>
         <Icon src={el.icon} alt={el.subTitle} />
         <TextContainer>
@@ -125,12 +125,14 @@ const Feature = () => {
       <CategoryH4>Features</CategoryH4>
       <TitleH1>Pillars of culture</TitleH1>
       <Table>
-        <Row>
-          <FeatureCell arr={firstRow} />
-        </Row>
-        <Row>
-          <FeatureCell arr={secondRow} />
-        </Row>
+        <tbody>
+          <Row>
+            <FeatureCell arr={firstRow} />
+          </Row>
+          <Row>
+            <FeatureCell arr={secondRow} />
+          </Row>
+        </tbody>
       </Table>
     </Container>
   );

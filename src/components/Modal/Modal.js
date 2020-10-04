@@ -1,0 +1,117 @@
+import React, { useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
+
+import { InterviewArr } from 'components/Team/Profiles/profilesInfo';
+
+const popup = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  @supports (backdrop-filter: blur(3px)) {
+    backdrop-filter: blur(3px);
+  }
+`;
+
+const Container = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 70%;
+  background-color: white;
+  border-radius: 3px;
+
+  animation: ${popup} 0.3s ease-in;
+`;
+
+const Content = styled.div`
+  display: flex;
+  height: 100%;
+`;
+
+const ContentImg = styled.div`
+  width: 40%;
+  height: 100%;
+  background: ${(props) => `url(${props.img})`};
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
+const ContentText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  padding: 3rem;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
+  }
+
+  p {
+    font-size: 0.85rem;
+    line-height: 2;
+    white-space: pre-line;
+  }
+`;
+
+const Modal = ({ show, setShow, id }) => {
+  useEffect(() => {
+    if (show) document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'unset');
+  }, [show]);
+
+  const currentProfile = InterviewArr.find((i) => i.id === id);
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if (e.target.id === 'overlay') setShow(false);
+  };
+
+  return (
+    <Overlay onClick={handleClick} id="overlay">
+      <Container>
+        {currentProfile && (
+          <Content>
+            <ContentImg img={currentProfile.img} />
+            <ContentText>
+              <h2>{currentProfile.title}</h2>
+              <h3>{currentProfile.question1}</h3>
+              <p>{currentProfile.answer1}</p>
+              {currentProfile.question2 && <h3>{currentProfile.question2}</h3>}
+              {currentProfile.answer2 && <p>{currentProfile.answer2}</p>}
+              {currentProfile.question3 && <h3>{currentProfile.question2}</h3>}
+              {currentProfile.answer3 && <p>{currentProfile.answer3}</p>}
+            </ContentText>
+          </Content>
+        )}
+      </Container>
+    </Overlay>
+  );
+};
+
+export default Modal;
