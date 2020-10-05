@@ -14,7 +14,6 @@ const Title = styled(TitleH1)`
 
 const SubTitle = styled.h2`
   font-size: 1.5rem;
-  font-weight: 100;
   text-align: center;
   margin-top: 1rem;
 `;

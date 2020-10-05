@@ -8,11 +8,11 @@ module.exports = {
         fonts: [
           {
             family: 'Poppins',
-            variants: [`200`, `400`, `600`, `800`],
+            variants: [`200`, `400`, `600`],
           },
           {
             family: `Playfair Display`,
-            variants: [`500`],
+            variants: [`500, 900`],
           },
         ],
       },

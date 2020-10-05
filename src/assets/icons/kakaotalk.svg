@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Kakao" x="0px" y="0px" width="144.083px" height="144px" viewBox="0 0 144.083 144" enable-background="new 0 0 144.083 144" xml:space="preserve">
+<path d="M72.04,14.166C40.1,14.166,14.208,40.06,14.208,72c0,31.94,25.893,57.834,57.832,57.834  c31.941,0,57.836-25.895,57.836-57.834C129.875,40.06,103.981,14.166,72.04,14.166z M89.545,68.049  c-1.076,26.384-15.598,35.96-17.438,37.228c-1.746,1.205-2.664,0.223-2.664,0.223s-8.512-9.178-9.75-10.797  c-1.236-1.615,0.43-2.805,0.43-2.805c8.736-6.59,10.248-14.416,10.461-17.883H60c-3.295,0-5.965-2.671-5.965-5.966V44.088  c0-3.295,2.67-5.966,5.965-5.966h23.58c3.295,0,5.965,2.671,5.965,5.966V68.049z"/>
+
+	
+	
+	
+	<metadata>
+		<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<rdf:Description about="https://iconscout.com/legal#licenses" dc:title="Kakaotalk" dc:description="Kakaotalk" dc:publisher="Iconscout" dc:date="2017-03-22" dc:format="image/svg+xml" dc:language="en">
+				<dc:creator>
+					<rdf:Bag>
+						<rdf:li/>
+					</rdf:Bag>
+				</dc:creator>
+			</rdf:Description>
+		</rdf:RDF>
+    </metadata></svg>

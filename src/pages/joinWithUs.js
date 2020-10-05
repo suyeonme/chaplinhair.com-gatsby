@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from 'components/Layout/Layout';
 import SubHeader from 'components/Layout/Header/SubHeader';
 import Partnership from 'components/JoinWithUs/Partnership';
+import Salons from 'components/JoinWithUs/Salons/Salons';
 
 const JoinWithUsPage = () => {
   const headerObj = {
@@ -16,6 +17,7 @@ const JoinWithUsPage = () => {
       <SubHeader {...headerObj} />
       <main>
         <Partnership />
+        <Salons />
       </main>
     </Layout>
   );

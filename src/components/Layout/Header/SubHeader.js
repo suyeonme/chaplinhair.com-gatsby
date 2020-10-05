@@ -18,7 +18,6 @@ const Container = styled.header`
 const SubTitle = styled.p`
   max-width: 45%;
   font-size: 1.2rem;
-  font-weight: 100;
   line-height: 2;
   text-align: center;
   margin-top: 1rem;
