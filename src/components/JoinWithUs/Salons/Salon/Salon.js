@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import SalonInfo from 'components/JoinWithUs/Salons/Salon/SalonInfo';
@@ -77,9 +77,14 @@ const TextContainer = styled.div`
   }
 `;
 
+const SubImg = styled.div`
+  opacity: ${(props) => (props.isCurrent ? '0.7' : '1')};
+  cursor: pointer;
+`;
+
 const SalonImage = ({ salon }) => {
-  const imgArr = [salon.img4, salon.img2, salon.img3];
-  const { img1: mainImg, salonName } = salon;
+  const { salonName, images } = salon;
+  const [mainImg, setMainImg] = useState(images[0]);
 
   return (
     <ImgContainer>
@@ -87,10 +92,14 @@ const SalonImage = ({ salon }) => {
         <img src={mainImg} alt={salonName} />
       </div>
       <ImgSubContainer>
-        {imgArr.map((img, i) => (
-          <div key={i}>
+        {images.map((img, i) => (
+          <SubImg
+            key={i}
+            onClick={() => setMainImg(img)}
+            isCurrent={img === mainImg}
+          >
             <img src={img} alt={salonName} />
-          </div>
+          </SubImg>
         ))}
       </ImgSubContainer>
     </ImgContainer>

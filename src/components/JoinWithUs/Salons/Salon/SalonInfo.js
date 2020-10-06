@@ -54,15 +54,17 @@ const SocialsWrapper = styled.div`
 `;
 
 const SalonInfo = ({ salon }) => {
+  const { tel, address, hours, instagram, kakaoHairShop } = salon;
+
   const infoArr = [
-    { img: Phone, alt: '채플린헤어 전화번호', text: salon.tel },
-    { img: Address, alt: '채플린헤어 주소', text: salon.address },
-    { img: Clock, alt: '채플린헤어 영업시간', text: salon.hours },
+    { img: Phone, alt: '채플린헤어 전화번호', text: tel },
+    { img: Address, alt: '채플린헤어 주소', text: address },
+    { img: Clock, alt: '채플린헤어 영업시간', text: hours },
   ];
 
   const socialsArr = [
-    { img: Instagram, alt: '채플린헤어 인스타그램', href: salon.instagram },
-    { img: Kakao, alt: '채플린헤어 카카오헤어샵', href: salon.kakaoHairShop },
+    { img: Instagram, alt: '채플린헤어 인스타그램', href: instagram },
+    { img: Kakao, alt: '채플린헤어 카카오헤어샵', href: kakaoHairShop },
   ];
 
   const info = infoArr.map((i, index) => (
@@ -79,7 +81,11 @@ const SalonInfo = ({ salon }) => {
         key={i}
         target="_blank"
         rel="noreferrer"
-        href={`http://www.instagram.com/${social.href}`}
+        href={
+          social.img === Instagram
+            ? `http://www.instagram.com/${social.href}`
+            : `https://hairshop.kakao.com/store/${social.href}`
+        }
       >
         <Icon src={social.img} alt={social.alt} />
         {social.img === Instagram ? salon.instagram : 'Kakao Hairshop'}
@@ -89,7 +95,12 @@ const SalonInfo = ({ salon }) => {
 
   return (
     <InfoWrapper>
-      <Map lat={salon.lat} lng={salon.lng} mapId={salon.mapId} />
+      <Map
+        lat={salon.lat}
+        lng={salon.lng}
+        mapId={salon.mapId}
+        name={salon.salonName}
+      />
       <InfoContainer>
         {info}
         <SocialsWrapper>{socials}</SocialsWrapper>

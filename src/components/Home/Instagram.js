@@ -30,7 +30,7 @@ const Title = styled.h2`
 
 const Instagram = () => {
   return (
-    <Container color="black" bgColor="#F6F3EC">
+    <Container light>
       <CategoryH4>Social</CategoryH4>
       <IconContainer>
         <Icon src={WomanIcon} alt="Woman Icon" />
@@ -38,7 +38,10 @@ const Instagram = () => {
         <Title>
           Follow us on <span>Instagram</span>
         </Title>
-        <PrimaryBtn url="https://www.instagram.com/chaplin__hair/" />
+        <PrimaryBtn
+          url="https://www.instagram.com/chaplin__hair/"
+          text="Show More"
+        />
       </IconContainer>
     </Container>
   );

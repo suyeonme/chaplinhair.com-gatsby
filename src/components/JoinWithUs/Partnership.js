@@ -69,7 +69,7 @@ const Partnership = () => {
   ];
 
   return (
-    <Wrapper bgColor="#F6F3EC" color="black">
+    <Wrapper light>
       <ImgContainer>
         <Title>Partnership</Title>
         <img src={Image} alt="채플린헤어 파트너쉽" />

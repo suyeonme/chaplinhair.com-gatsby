@@ -10,9 +10,14 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
+const TeamContainer = styled(Container)`
+  background-color: white;
+  color: black;
+`;
+
 const Profiles = () => {
   return (
-    <Container bgColor="white" color="black">
+    <TeamContainer>
       <Wrapper>
         {profileArr.map((profile) => {
           return (
@@ -27,7 +32,7 @@ const Profiles = () => {
           );
         })}
       </Wrapper>
-    </Container>
+    </TeamContainer>
   );
 };
 

@@ -1,44 +1,111 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import ChaplinLogo from 'assets/icons/logo.png';
-import HamburgerMenu from 'components/Layout/Nav/HamburgerMenu';
+import Chaplin from 'assets/icons/logo.png';
 
-const NavContainer = styled.nav`
-  width: 100%;
-  height: auto;
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  color: #b8ac79;
   background-color: black;
-  padding: 0.8rem 1rem;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0 5rem;
+`;
+
+const RightWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`;
+
+const LeftWrapper = styled(RightWrapper)`
+  justify-content: space-between;
+`;
+
+const Logo = styled.div`
+  width: 25%;
+  height: auto;
 `;
 
 const StyledLink = styled(Link)`
-  width: 16%;
+  display: block;
+  font-family: Playfair Display;
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1.3;
 `;
 
-const LogoContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
+const SocialLink = styled.a`
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #8f8866;
+  margin-right: 3rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    color: #b8ac79;
+  }
 `;
 
-const Logo = styled.img`
-  width: 100%;
-`;
+const Nav = ({ show }) => {
+  useEffect(() => {
+    if (show) document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'unset');
+  }, [show]);
 
-const Header = () => {
+  const items = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: '/about' },
+    { name: 'Team', to: '/team' },
+    { name: 'Join With Us', to: '/joinWithUs' },
+  ];
+
+  const socials = [
+    { name: 'Instagram', link: 'https://www.instagram.com/chaplin__hair' },
+    {
+      name: 'Youtube',
+      link: 'https://www.youtube.com/channel/UCsMa9_c-dbnRYOLG1Maa2og',
+    },
+    { name: 'Blog', link: 'https://blog.naver.com/ckffl4325' },
+  ];
+
   return (
-    <NavContainer>
-      <LogoContainer>
-        <StyledLink to="/">
-          <Logo src={ChaplinLogo} />
-        </StyledLink>
-      </LogoContainer>
-      <HamburgerMenu />
-    </NavContainer>
+    <Container>
+      <Wrapper>
+        <LeftWrapper>
+          <Logo>
+            <img src={Chaplin} alt="채플린헤어" />
+          </Logo>
+          <div>
+            {socials.map((social, i) => (
+              <SocialLink href={social.link} target="_blank" key={i}>
+                {social.name}
+              </SocialLink>
+            ))}
+          </div>
+        </LeftWrapper>
+        <RightWrapper>
+          {items.map((item, i) => (
+            <StyledLink to={item.to} key={i}>
+              {item.name}
+            </StyledLink>
+          ))}
+        </RightWrapper>
+      </Wrapper>
+    </Container>
   );
 };
 
-export default Header;
+export default Nav;

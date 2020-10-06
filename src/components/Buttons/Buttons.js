@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const PrimaryStyle = styled.a`
+const PrimaryStyle = styled.div`
   display: inline-block;
   position: relative;
   padding: 1.4rem 1.5rem;
   border-radius: 0.5rem;
   font-size: 0.7rem;
+  font-family: Poppins;
   font-weight: 600;
   letter-spacing: 0.3rem;
-  word-spacing: 0.7rem;
+  word-spacing: 0.3rem;
+  text-decoration: none;
   overflow: hidden;
   cursor: pointer;
   color: black;
@@ -38,10 +41,20 @@ const PrimaryStyle = styled.a`
   }
 `;
 
-export const PrimaryBtn = ({ url }) => {
-  return (
-    <PrimaryStyle href={url} target="_blank">
-      Show More
-    </PrimaryStyle>
-  );
+export const PrimaryBtn = ({ url, text }) => {
+  if (url === '/') {
+    return (
+      <Link to="/">
+        <PrimaryStyle>Back to Home</PrimaryStyle>
+      </Link>
+    );
+  } else {
+    return (
+      <PrimaryStyle>
+        <a href={url} target="_blank" rel="noreferrer">
+          {text}
+        </a>
+      </PrimaryStyle>
+    );
+  }
 };

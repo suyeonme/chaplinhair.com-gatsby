@@ -27,6 +27,6 @@ export const Container = styled.section`
   width: 100%;
   height: auto;
   padding: 3rem 3rem;
-  color: ${(props) => props.color};
-  background-color: ${(props) => props.bgColor};
+  color: ${(props) => (props.light ? 'black' : '#F6F3EC')};
+  background-color: ${(props) => (props.light ? '#F6F3EC' : 'black')};
 `;

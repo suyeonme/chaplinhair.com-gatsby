@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "GATSBY_ENV=production gatsby build",
+    "develop": "GATSBY_ENV=development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -19,6 +19,7 @@
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-styled-components": "^3.3.12",
+    "gsap": "^3.5.1",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

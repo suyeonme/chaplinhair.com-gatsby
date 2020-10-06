@@ -5,7 +5,7 @@ import reset from 'styled-reset';
 import 'normalize.css';
 import 'fonts/fonts.css';
 
-import Nav from 'components/Layout/Nav/Nav';
+import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => {
   return (
     <>
-      <Nav />
+      <Navbar />
       <GlobalStyle />
       {children}
       <Footer />

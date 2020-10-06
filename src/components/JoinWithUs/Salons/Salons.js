@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const Salons = () => {
   return (
-    <Container bgColor=" #F6F3EC" color="black">
+    <Container light>
       <CategoryH4>Partner Salons</CategoryH4>
       <Wrapper>
         {salonsArr.map((salon) => (

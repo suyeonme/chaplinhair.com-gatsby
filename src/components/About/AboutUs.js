@@ -52,7 +52,7 @@ const TextContainer = styled.div`
 
 const AboutUs = () => {
   return (
-    <Container bgColor="#F6F3EC" color="black">
+    <Container light>
       <Title>The person who leads Chaplin Hair is you.</Title>
       <SubTitle>채플린 헤어를 이끄는 사람은 여러분입니다.</SubTitle>
 

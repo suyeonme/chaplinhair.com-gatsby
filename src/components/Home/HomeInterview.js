@@ -44,7 +44,7 @@ const PartnerImg = styled.img`
 
 const HomeInterview = () => {
   return (
-    <InterviewContainer bgColor="#F6F3EC" color="black">
+    <InterviewContainer light>
       <TextContainer>
         <CategoryH4 left>Interview</CategoryH4>
         <Title>

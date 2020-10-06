@@ -6,7 +6,7 @@ import Modal from 'components/Modal/Modal';
 const Container = styled.div`
   width: 25%;
   height: auto;
-  padding: 0 1.5rem 3rem;
+  padding: 0 2rem 4rem;
   cursor: pointer;
 `;
 

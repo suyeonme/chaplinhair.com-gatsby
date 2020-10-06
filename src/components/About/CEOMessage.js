@@ -58,7 +58,7 @@ const NameContainer = styled.div`
 
 const CEOMessage = () => {
   return (
-    <Container bgColor="#F6F3EC" color="black">
+    <Container light>
       <TitleH1>CEO Message</TitleH1>
       <Wrapper>
         <ImgContainer src={CEOImg} alt="채플린 헤어 박천웅 대표" />
