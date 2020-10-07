@@ -39,7 +39,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
-    const offset = window.scrollY;
+    const offset = window.pageYOffset;
     if (offset > 300) {
       setIsScrolled(true);
     } else {
@@ -60,7 +60,8 @@ const Navbar = () => {
         </StyledLink>
       </LogoContainer>
       <HamburgerMenu setShow={setShow} show={show} />
-      {show && <Nav show={show} />}
+      {/* {show && <Nav show={show} />} */}
+      <Nav show={show} />
     </NavbarContainer>
   );
 };

@@ -23,6 +23,12 @@ export const CategoryH4 = styled.h4`
   text-align: ${(props) => (props.left ? 'left' : 'center')};
 `;
 
+export const FirstLetter = styled.span`
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #b8ac79;
+`;
+
 export const Container = styled.section`
   width: 100%;
   height: auto;
