@@ -14,7 +14,6 @@ const PrimaryStyle = styled.div`
   word-spacing: 0.3rem;
   text-decoration: none;
   overflow: hidden;
-  cursor: pointer;
   color: black;
   border: 1px solid black;
   transition: all 0.8s;

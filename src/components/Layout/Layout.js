@@ -8,6 +8,7 @@ import 'fonts/fonts.css';
 import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';
 import PageTransition from 'components/PageTransition/PageTransition';
+import Cursor from 'components/Cursor/Cursor';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     overflow-x: hidden;
+    cursor: none;
   }
 
   body{
@@ -34,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
   a{
     text-decoration:none;
     color:inherit;
-    cursor: pointer;
+    cursor: none;
   }
 
   ul, li {
@@ -76,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ location, children }) => {
   return (
     <>
+      <Cursor />
       <Navbar />
       <GlobalStyle />
       <PageTransition location={location}>{children}</PageTransition>

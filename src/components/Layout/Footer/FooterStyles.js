@@ -50,7 +50,6 @@ export const Item = styled.div`
     letter-spacing: 1px;
     line-height: 1.3;
     opacity: 0.8;
-    cursor: pointer;
     transition: all 0.2s ease-in;
     margin-bottom: 0.5rem;
 

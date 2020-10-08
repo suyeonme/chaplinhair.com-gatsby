@@ -2,14 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HamburgerSVG = styled.svg`
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  transition: transform 400ms;
-  transform: ${(props) => props.show && `rotate(45deg)`};
-
   position: relative;
   z-index: 10;
+  user-select: none;
+  transform: ${(props) => props.show && `rotate(45deg)`};
+  transition: transform 400ms;
 `;
 
 const HamburgerLine = styled.path`
