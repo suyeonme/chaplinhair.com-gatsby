@@ -7,6 +7,7 @@ import 'fonts/fonts.css';
 
 import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';
+import PageTransition from 'components/PageTransition/PageTransition';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -19,12 +20,14 @@ const GlobalStyle = createGlobalStyle`
       box-sizing:border-box;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body{
     font-size: 62.5%;
     font-family: 'Poppins', 'Spoqa Han Sans', sans-serif;
     font-weight: 300;
-    overflow-x: hidden;
-    overscroll-behavior: smooth;
     color: black;
   }
 
@@ -70,12 +73,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ location, children }) => {
   return (
     <>
       <Navbar />
       <GlobalStyle />
-      {children}
+      <PageTransition location={location}>{children}</PageTransition>
       <Footer />
     </>
   );

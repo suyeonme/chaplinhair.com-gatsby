@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Layout from 'components/Layout/Layout';
 import SubHeader from 'components/Layout/Header/SubHeader';
 import Profiles from 'components/Team/Profiles/Profiles';
 
@@ -12,12 +11,12 @@ const TeamPage = () => {
   };
 
   return (
-    <Layout>
+    <>
       <SubHeader {...headerObj} />
       <main>
         <Profiles />
       </main>
-    </Layout>
+    </>
   );
 };
 

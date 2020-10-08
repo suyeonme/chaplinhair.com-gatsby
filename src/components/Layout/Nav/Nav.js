@@ -1,107 +1,38 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
 
-import { showNav, hideNav } from 'components/Layout/Nav/animations';
 import Chaplin from 'assets/icons/logo.png';
+import { showNav, hideNav } from 'components/Layout/Nav/animations';
+import {
+  Container,
+  Wrapper,
+  RightWrapper,
+  LeftWrapper,
+  Logo,
+  StyledLink,
+  SocialLink,
+  Overlay,
+} from 'components/Layout/Nav/NavStyles';
 
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  color: #b8ac79;
-  background-color: black;
-  visibility: hidden;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 0 5rem;
-`;
-
-const RightWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-`;
-
-const LeftWrapper = styled(RightWrapper)`
-  justify-content: space-between;
-`;
-
-const Logo = styled.div`
-  width: 25%;
-  height: auto;
-`;
-
-const activeClassName = 'active';
-const StyledLink = styled(Link).attrs({ activeClassName })`
-  display: block;
-  font-family: Playfair Display;
-  font-size: 5rem;
-  font-weight: 900;
-  line-height: 1.3;
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(100px);
-
-  &.${activeClassName} {
-    color: #897a44;
-  }
-`;
-
-const SocialLink = styled.a`
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #8f8866;
-  margin-right: 3rem;
-  letter-spacing: 1px;
-  transition: color 0.3s ease-in;
-
-  &:hover {
-    color: #b8ac79;
-  }
-`;
-
-const Dot = styled.div`
-  display: inline-block;
-  width: 0.6rem;
-  height: 0.6rem;
-  background-color: #b8ac79;
-  border-radius: 50%;
-  margin-right: 1rem;
-  opacity: ${(props) => (props.isCurrent ? 1 : 0)};
-  transform: ${(props) =>
-    props.isCurrent ? 'translateY(0)' : 'translateY(-10px)'};
-  transition: all 0.2s ease-in;
-`;
-
-const Nav = ({ show }) => {
+const Nav = ({ show, setShow }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
+
+  const navRef = useRef(null);
+  const overlayRef = useRef(null);
+  const linkRef = useRef(null);
+  const logoRef = useRef(null);
+  const socialRef = useRef(null);
 
   useEffect(() => {
     if (show) document.body.style.overflow = 'hidden';
     return () => (document.body.style.overflow = 'unset');
   }, [show]);
 
-  const divRef = useRef(null);
-  const navRef = useRef(null);
-  const logoRef = useRef(null);
-  const socialRef = useRef(null);
-
   const handleEnter = () => {
     showNav(
       navRef.current,
-      divRef.current.childNodes,
+      overlayRef.current,
+      linkRef.current.childNodes,
       logoRef.current,
       socialRef.current,
     );
@@ -109,9 +40,10 @@ const Nav = ({ show }) => {
 
   const handleExit = () => {
     hideNav(
-      divRef.current.childNodes,
+      linkRef.current.childNodes,
       logoRef.current,
       socialRef.current,
+      overlayRef.current,
       navRef.current,
     );
   };
@@ -138,13 +70,14 @@ const Nav = ({ show }) => {
         in={show}
         timeout={{
           enter: 1600,
-          exit: 1300,
+          exit: 1600,
         }}
         unmountOnExit
         onEnter={handleEnter}
         onExit={handleExit}
       >
         <Container ref={navRef}>
+          <Overlay ref={overlayRef} />
           <Wrapper>
             <LeftWrapper>
               <Logo ref={logoRef}>
@@ -158,17 +91,18 @@ const Nav = ({ show }) => {
                 ))}
               </div>
             </LeftWrapper>
-            <RightWrapper ref={divRef}>
+            <RightWrapper ref={linkRef}>
               {items.map((item, i) => (
-                <StyledLink
-                  key={i}
-                  to={item.path}
-                  onMouseEnter={() => setCurrentIndex(i)}
-                >
-                  {/* {currentIndex === i && <Dot />} */}
-                  <Dot isCurrent={currentIndex === i} />
-                  {item.name}
-                </StyledLink>
+                <li key={i}>
+                  <StyledLink
+                    to={item.path}
+                    onClick={() => setShow(false)}
+                    onMouseEnter={() => setCurrentIndex(i)}
+                    iscurrent={currentIndex === i ? 1 : 0}
+                  >
+                    {item.name}
+                  </StyledLink>
+                </li>
               ))}
             </RightWrapper>
           </Wrapper>

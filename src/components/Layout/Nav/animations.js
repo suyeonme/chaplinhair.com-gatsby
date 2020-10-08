@@ -1,37 +1,42 @@
 import gsap from 'gsap';
 
-// Navigation, page transition (the same)
+const tl = gsap.timeline();
 
-export const showNav = (el1, el2, el3, el4) => {
-  const tl = gsap.timeline();
-
+export const showNav = (el1, el2, el3, el4, el5) => {
   tl.to(el1, { duration: 0, css: { visibility: 'visible' } })
-    .from(el1, 0.7, {
-      opacity: 0,
+    .from([el1, el2], {
+      duration: 0.7,
       height: 0,
+      transformOrigin: 'right top',
+      skewY: 2,
       ease: 'power4.inOut',
+      stagger: {
+        amount: 0.2,
+      },
     })
-    .to(el2, 0.6, {
+    .to(el3, 0.6, {
       y: 0,
       opacity: 1,
       ease: 'Power2.easeOut',
       stagger: 0.2,
     })
-    .from([el3, el4], 0.3, { opacity: 0, stagger: 0.1 });
+    .from([el4, el5], 0.2, { y: 10, opacity: 0, stagger: 0.2 }, '-=0.2');
 };
 
-export const hideNav = (el1, el2, el3, el4) => {
-  const tl = gsap.timeline();
-
-  tl.to(el1, 0.3, {
+export const hideNav = (el1, el2, el3, el4, el5) => {
+  tl.to([el1, el2, el3], 0.3, {
     opacity: 0,
     ease: 'Power2.easeOut',
   })
-    .to([el2, el3], 0.3, { opacity: 0, stagger: 0.2 })
-    .to(el4, 0.7, {
+    .to([el4, el5], {
+      duration: 0.7,
       height: 0,
-      opacity: 0,
-      ease: 'Power2.easeOut',
+      transformOrigin: 'right top',
+      skewY: 2,
+      ease: 'power4.inOut',
+      stagger: {
+        amount: 0.2,
+      },
     })
-    .to(el4, 0, { css: { visibility: 'hidden' } });
+    .to(el5, 0, { css: { visibility: 'hidden' } });
 };

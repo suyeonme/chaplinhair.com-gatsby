@@ -60,8 +60,7 @@ const Navbar = () => {
         </StyledLink>
       </LogoContainer>
       <HamburgerMenu setShow={setShow} show={show} />
-      {/* {show && <Nav show={show} />} */}
-      <Nav show={show} />
+      <Nav show={show} setShow={setShow} />
     </NavbarContainer>
   );
 };
