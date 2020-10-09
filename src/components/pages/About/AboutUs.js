@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { useIntersection } from 'react-use';
+import gsap from 'gsap';
 
+import { fadeIn } from 'animations/animations';
 import AboutUsImg from 'assets/img/about-1.jpg';
 import { TitleH1, Container } from 'styles/style';
 
@@ -16,6 +19,9 @@ const SubTitle = styled.h2`
   font-size: 1.5rem;
   text-align: center;
   margin-top: 1rem;
+
+  opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const AboutContainer = styled.div`
@@ -30,14 +36,21 @@ const AboutContainer = styled.div`
 const TextContainer = styled.div`
   position: absolute;
   background-color: #f6f3ec;
-  width: 40%;
   top: 7rem;
   left: 3rem;
   padding: 2rem;
 
+  width: 0%;
+  height: 446px;
+  visibility: hidden;
+  ${'' /* height: auto; */}
+
   p {
     font-size: 1.1rem;
     line-height: 2;
+
+    opacity: 0;
+    transform: translateY(-60px);
   }
 
   span {
@@ -47,17 +60,54 @@ const TextContainer = styled.div`
     line-height: 2;
     text-align: center;
     margin-top: 1rem;
+
+    opacity: 0;
+    transform: translateY(-60px);
   }
 `;
 
 const AboutUs = () => {
+  const titleRef = useRef(null);
+  const subTitleRef = useRef(null);
+  const boxRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    fadeIn(1.1, titleRef.current, subTitleRef.current);
+  }, []);
+
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    const tl = gsap.timeline();
+
+    tl.to(boxRef.current, 0, {
+      css: { visibility: 'visible' },
+    })
+      .to(boxRef.current, 0.8, { width: '40%', ease: 'power2.easeInOut' })
+      .to(boxRef.current.childNodes, 0.8, {
+        opacity: 1,
+        y: 0,
+        ease: 'power4.out',
+        stagger: {
+          amount: 0.3,
+        },
+      });
+  }
+
   return (
     <Container light>
-      <Title>The person who leads Chaplin Hair is you.</Title>
-      <SubTitle>채플린 헤어를 이끄는 사람은 여러분입니다.</SubTitle>
+      <Title ref={titleRef}>The person who leads Chaplin Hair is you.</Title>
+      <SubTitle ref={subTitleRef}>
+        채플린 헤어를 이끄는 사람은 여러분입니다.
+      </SubTitle>
 
-      <AboutContainer>
-        <TextContainer>
+      <AboutContainer ref={sectionRef}>
+        <TextContainer ref={boxRef}>
           <TitleH1>About Us</TitleH1>
           <p>
             트렌드(Trend)는 시간이 지나면 사라지기 마련입니다. 그러나 견고하게

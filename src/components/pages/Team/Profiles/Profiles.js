@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Container } from 'styles/style';
-import Profile from 'components/Team/Profiles/Profile';
-import { profileArr } from 'components/Team/Profiles/profilesInfo';
+import Profile from 'components/pages/Team/Profiles/Profile';
+import { profileArr } from 'components/pages/Team/Profiles/profilesInfo';
 
 const Wrapper = styled.div`
   display: flex;

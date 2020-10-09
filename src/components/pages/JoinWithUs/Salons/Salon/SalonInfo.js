@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { useIntersection } from 'react-use';
+import gsap from 'gsap';
 
 import Map from 'components/Map/Map';
 import Phone from 'assets/icons/phone-black.svg';
@@ -13,6 +15,9 @@ const InfoWrapper = styled.div`
   width: 100%;
   height: auto;
   margin-top: 3rem;
+
+  opacity: 0;
+  transform: translateY(60px);
 `;
 
 const InfoContainer = styled.div`
@@ -53,7 +58,7 @@ const SocialsWrapper = styled.div`
   margin-top: 1rem;
 `;
 
-const SalonInfo = ({ salon }) => {
+const SalonInfo = ({ salon, sectionRef }) => {
   const { tel, address, hours, instagram, kakaoHairShop } = salon;
 
   const infoArr = [
@@ -93,8 +98,25 @@ const SalonInfo = ({ salon }) => {
     ));
   }
 
+  /////
+  const infoRef = useRef(null);
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6,
+  });
+
+  if (intersection && intersection.isIntersecting >= 1) {
+    gsap.to(infoRef.current, 0.3, {
+      opacity: 1,
+      y: 0,
+      ease: 'power2.easeInOut',
+      delay: 1,
+    });
+  }
+
   return (
-    <InfoWrapper>
+    <InfoWrapper ref={infoRef}>
       <Map
         lat={salon.lat}
         lng={salon.lng}

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import SubHeader from 'components/Layout/Header/SubHeader';
-import Partnership from 'components/JoinWithUs/Partnership';
-import Salons from 'components/JoinWithUs/Salons/Salons';
+import Partnership from 'components/pages/JoinWithUs/Partnership';
+import Salons from 'components/pages/JoinWithUs/Salons/Salons';
 
 const JoinWithUsPage = () => {
   const headerObj = {

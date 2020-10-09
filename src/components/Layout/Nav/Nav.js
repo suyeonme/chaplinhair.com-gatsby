@@ -49,10 +49,10 @@ const Nav = ({ show, setShow }) => {
   };
 
   const items = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Team', path: '/team' },
-    { name: 'Join With Us', path: '/joinWithUs' },
+    { path: '/', en: 'Home', ko: '홈' },
+    { path: '/about', en: 'About', ko: '소개' },
+    { path: '/team', en: 'Team', ko: '팀' },
+    { path: '/joinWithUs', en: 'Join With Us', ko: '파트너쉽' },
   ];
 
   const socials = [
@@ -100,7 +100,8 @@ const Nav = ({ show, setShow }) => {
                     onMouseEnter={() => setCurrentIndex(i)}
                     iscurrent={currentIndex === i ? 1 : 0}
                   >
-                    {item.name}
+                    {item.en}
+                    <span>{item.ko}</span>
                   </StyledLink>
                 </li>
               ))}

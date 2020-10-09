@@ -8,7 +8,7 @@ import { Overlay } from 'components/Layout/Nav/NavStyles';
 const ColorOverlay = styled(Overlay)`
   background-color: #b8ac79;
   z-index: 3;
-  visibility: hidden;
+  display: none;
 `;
 
 const PageTransition = ({ location, children }) => {
@@ -16,14 +16,14 @@ const PageTransition = ({ location, children }) => {
     const target = el.firstChild;
     const tl = gsap.timeline();
 
-    tl.to(target, { duration: 0, css: { visibility: 'visible' } })
+    tl.to(target, 0, { autoAlpha: 1, display: 'block' })
       .to(target, {
         height: 0,
         duration: 0.8,
         transformOrigin: 'right top',
         ease: 'power4.inOut',
       })
-      .to(target, { duration: 0, css: { visibility: 'hidden' } });
+      .to(target, 0, { autoAlpha: 0, display: 'none' });
   };
 
   return (

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import gsap from 'gsap';
 
 import HeaderImg from 'assets/img/header.jpg';
 import HeaderTitle from 'assets/icons/header-title.svg';
@@ -11,32 +12,52 @@ const Container = styled.header`
 `;
 
 const HeaderContainer = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-top: 1rem;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Image = styled.img`
-  width: 88%;
-  height: auto;
+const Image = styled.div`
+  width: 100%;
+  height: 0;
+  background: url(${HeaderImg});
+  background-size: cover;
+  background-position: center center;
 `;
 
 const Title = styled.img`
   width: 7rem;
   height: auto;
   display: block;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin: 0 1rem;
+  transform: translateX(30px);
+  opacity: 0;
 `;
 
 const HomeHeader = () => {
+  const imgRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.to(imgRef.current, 1, {
+      height: '100%',
+      ease: 'power2.easeInOut',
+      delay: 0.4,
+    }).to(textRef.current, 1, {
+      opacity: 1,
+      x: '0',
+      ease: 'power2.easeInOut',
+    });
+  }, []);
+
   return (
     <Container>
       <HeaderContainer>
-        <Title src={HeaderTitle} alt="채플린 헤어" />
-        <Image src={HeaderImg} alt="채플린 헤어" />
+        <Title src={HeaderTitle} alt="채플린 헤어" ref={textRef} />
+        <Image alt="채플린 헤어" ref={imgRef} />
       </HeaderContainer>
     </Container>
   );

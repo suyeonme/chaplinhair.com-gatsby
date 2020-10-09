@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+import { Transition } from 'react-transition-group';
 
-import { InterviewArr } from 'components/Team/Profiles/profilesInfo';
-
-const popup = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+import { InterviewArr } from 'components/pages/Team/Profiles/profilesInfo';
+import { showModal, hideModal } from 'animations/animations';
 
 const Overlay = styled.div`
   position: fixed;
@@ -30,8 +27,6 @@ const Container = styled.div`
   height: 70%;
   background-color: white;
   border-radius: 3px;
-
-  animation: ${popup} 0.3s ease-in;
 `;
 
 const Content = styled.div`
@@ -44,6 +39,7 @@ const ContentImg = styled.div`
   height: 100%;
   background: ${(props) => `url(${props.img})`};
   background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
 `;
 
@@ -53,6 +49,9 @@ const ContentText = styled.div`
   justify-content: center;
   width: 60%;
   padding: 3rem;
+
+  opacity: 0;
+  transform: translateY(60px);
 
   h2 {
     font-size: 1.2rem;
@@ -80,10 +79,8 @@ const ContentText = styled.div`
 `;
 
 const Modal = ({ show, setShow, id }) => {
-  useEffect(() => {
-    if (show) document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
-  }, [show]);
+  const modalRef = useRef(null);
+  const contentRef = useRef(null);
 
   const currentProfile = InterviewArr.find((i) => i.id === id);
 
@@ -92,25 +89,47 @@ const Modal = ({ show, setShow, id }) => {
     if (e.target.id === 'overlay') setShow(false);
   };
 
+  const handleEnter = () => {
+    showModal(modalRef.current, contentRef.current);
+  };
+
+  const handleExit = () => {
+    hideModal(contentRef.current, modalRef.current);
+  };
+
   return (
-    <Overlay onClick={handleClick} id="overlay">
-      <Container>
-        {currentProfile && (
-          <Content>
-            <ContentImg img={currentProfile.img} />
-            <ContentText>
-              <h2>{currentProfile.title}</h2>
-              <h3>{currentProfile.question1}</h3>
-              <p>{currentProfile.answer1}</p>
-              {currentProfile.question2 && <h3>{currentProfile.question2}</h3>}
-              {currentProfile.answer2 && <p>{currentProfile.answer2}</p>}
-              {currentProfile.question3 && <h3>{currentProfile.question2}</h3>}
-              {currentProfile.answer3 && <p>{currentProfile.answer3}</p>}
-            </ContentText>
-          </Content>
-        )}
-      </Container>
-    </Overlay>
+    <>
+      <Transition
+        in={show}
+        timeout={700}
+        unmountOnExit
+        onEnter={handleEnter}
+        onExit={handleExit}
+      >
+        <Overlay onClick={handleClick} id="overlay">
+          <Container ref={modalRef}>
+            {currentProfile && (
+              <Content>
+                <ContentImg img={currentProfile.img} />
+                <ContentText ref={contentRef}>
+                  <h2>{currentProfile.title}</h2>
+                  <h3>{currentProfile.question1}</h3>
+                  <p>{currentProfile.answer1}</p>
+                  {currentProfile.question2 && (
+                    <h3>{currentProfile.question2}</h3>
+                  )}
+                  {currentProfile.answer2 && <p>{currentProfile.answer2}</p>}
+                  {currentProfile.question3 && (
+                    <h3>{currentProfile.question2}</h3>
+                  )}
+                  {currentProfile.answer3 && <p>{currentProfile.answer3}</p>}
+                </ContentText>
+              </Content>
+            )}
+          </Container>
+        </Overlay>
+      </Transition>
+    </>
   );
 };
 

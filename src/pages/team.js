@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SubHeader from 'components/Layout/Header/SubHeader';
-import Profiles from 'components/Team/Profiles/Profiles';
+import Profiles from 'components/pages/Team/Profiles/Profiles';
 
 const TeamPage = () => {
   const headerObj = {

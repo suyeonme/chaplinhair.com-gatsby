@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { useIntersection } from 'react-use';
 
 import YoutubeImg from 'assets/img/youtube-profile.jpg';
 import { TitleH1, CategoryH4, Container } from 'styles/style';
+import { fadeIn } from 'animations/animations';
 
 const Wrapper = styled(Container)`
   padding: 3rem 16rem;
@@ -21,11 +23,15 @@ const ProfileImg = styled.img`
   height: 2.2rem;
   border-radius: 50%;
   margin-right: 1rem;
+  opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const ProfileTitle = styled.p`
   color: inherit;
   font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const VideoContainer = styled.div`
@@ -43,16 +49,28 @@ const VideoContainer = styled.div`
 `;
 
 const HomeYoutube = () => {
+  const youtubeRef = useRef(null);
+
+  const intersection = useIntersection(youtubeRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    fadeIn(0, '#fadeIn');
+  }
+
   return (
-    <Wrapper bgColor="black" color="#F6F3EC">
-      <CategoryH4>Social</CategoryH4>
-      <TitleH1>Youtube</TitleH1>
+    <Wrapper bgColor="black" color="#F6F3EC" ref={youtubeRef}>
+      <CategoryH4 id="fadeIn">Social</CategoryH4>
+      <TitleH1 id="fadeIn">Youtube</TitleH1>
       <ProfileContainer
         href="https://www.youtube.com/channel/UCsMa9_c-dbnRYOLG1Maa2og?view_as=subscriber"
         target="_black"
       >
-        <ProfileImg src={YoutubeImg} alt="채플린헤어 유튜브" />
-        <ProfileTitle>찰리의 미용 TV</ProfileTitle>
+        <ProfileImg src={YoutubeImg} alt="채플린헤어 유튜브" id="fadeIn" />
+        <ProfileTitle id="fadeIn">찰리의 미용 TV</ProfileTitle>
       </ProfileContainer>
 
       <VideoContainer>

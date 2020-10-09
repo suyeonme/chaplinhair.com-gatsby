@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { salonsArr } from 'components/JoinWithUs/Salons/SalonsInfo';
+import { salonsArr } from 'components/pages/JoinWithUs/Salons/SalonsInfo';
 import { Container, CategoryH4 } from 'styles/style';
-import Salon from 'components/JoinWithUs/Salons/Salon/Salon';
+import Salon from 'components/pages/JoinWithUs/Salons/Salon/Salon';
 
 const Wrapper = styled.div`
   margin-top: 3rem;

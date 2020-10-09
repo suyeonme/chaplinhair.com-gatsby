@@ -1,9 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-
-import 'normalize.css';
-import 'fonts/fonts.css';
+import 'assets/fonts/fonts.css';
 
 import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';

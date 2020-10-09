@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TitleH1 } from 'styles/style';
-
 const Container = styled.header`
   width: 100%;
   height: auto;
@@ -13,6 +11,17 @@ const Container = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Title = styled.h1`
+  font-size: 3rem;
+  font-family: Playfair Display;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  color: inherit;
+  padding: 1rem 0;
 `;
 
 const SubTitle = styled.p`
@@ -26,7 +35,7 @@ const SubTitle = styled.p`
 const SubHeader = ({ title, subTitle }) => {
   return (
     <Container>
-      <TitleH1>{title}</TitleH1>
+      <Title>{title}</Title>
       <SubTitle>{subTitle}</SubTitle>
     </Container>
   );

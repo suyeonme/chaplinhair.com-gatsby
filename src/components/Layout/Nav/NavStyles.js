@@ -71,6 +71,13 @@ export const StyledLink = styled(Link).attrs({ activeClassName })`
       props.iscurrent ? 'translateY(0)' : 'translateY(-10px)'};
     transition: all 0.2s ease-in;
   }
+
+  span {
+    font-size: 1rem;
+    font-family: Spoqa Han Sans;
+    font-weight: 300;
+    margin-left: 3rem;
+  }
 `;
 
 export const SocialLink = styled.a`

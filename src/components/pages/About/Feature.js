@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { useIntersection } from 'react-use';
 
+import { fadeIn } from 'animations/animations';
 import { Container, TitleH1, CategoryH4 } from 'styles/style';
-
 import Originality from 'assets/icons/originality.svg';
 import Team from 'assets/icons/team.svg';
 import Education from 'assets/icons/education.svg';
@@ -13,6 +14,9 @@ const Table = styled.table`
   border-style: hidden;
   width: 85%;
   margin: 3rem auto 0;
+
+  opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const Row = styled.tr`
@@ -120,11 +124,25 @@ const Feature = () => {
     },
   ];
 
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const tableRef = useRef(null);
+
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    fadeIn(0, titleRef.current, tableRef.current);
+  }
+
   return (
-    <Container bgColor="black" color="#F6F3EC">
+    <Container bgColor="black" color="#F6F3EC" ref={sectionRef}>
       <CategoryH4>Features</CategoryH4>
-      <TitleH1>Pillars of culture</TitleH1>
-      <Table>
+      <TitleH1 ref={titleRef}>Pillars of culture</TitleH1>
+      <Table ref={tableRef}>
         <tbody>
           <Row>
             <FeatureCell arr={firstRow} />

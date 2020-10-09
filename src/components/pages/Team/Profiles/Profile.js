@@ -48,7 +48,7 @@ const Profile = ({ img, img2, egName, koName, id }) => {
           <span>{koName}</span>
         </Name>
       </Container>
-      {show && <Modal show={show} setShow={setShow} id={currentProfile} />}
+      <Modal show={show} setShow={setShow} id={currentProfile} />
     </>
   );
 };

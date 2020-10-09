@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
+import { useIntersection } from 'react-use';
 
-import SalonInfo from 'components/JoinWithUs/Salons/Salon/SalonInfo';
+import { fadeIn } from 'animations/animations';
+import SalonInfo from 'components/pages/JoinWithUs/Salons/Salon/SalonInfo';
 
 const Container = styled.div`
   width: 100%;
@@ -16,6 +18,9 @@ const Container = styled.div`
     font-weight: 400;
     text-align: center;
     margin-bottom: 2rem;
+
+    opacity: 0;
+    transform: translateY(60px);
 
     span {
       font-size: 1rem;
@@ -42,6 +47,9 @@ const ImgContainer = styled.div`
   width: 50%;
   height: auto;
   font-size: 0;
+
+  opacity: 0;
+  transform: translateY(60px);
 `;
 
 const ImgSubContainer = styled.div`
@@ -58,6 +66,9 @@ const TextContainer = styled.div`
   font-weight: 400;
   text-align: center;
   padding: 3rem 0 3rem 3rem;
+
+  opacity: 0;
+  transform: translateY(60px);
 
   h3 {
     font-size: 1.6rem;
@@ -82,12 +93,23 @@ const SubImg = styled.div`
   cursor: pointer;
 `;
 
-const SalonImage = ({ salon }) => {
+const SalonImage = ({ salon, sectionRef }) => {
   const { salonName, images } = salon;
   const [mainImg, setMainImg] = useState(images[0]);
 
+  const imgRef = useRef(null);
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    fadeIn(0.2, imgRef.current);
+  }
+
   return (
-    <ImgContainer>
+    <ImgContainer ref={imgRef}>
       <div>
         <img src={mainImg} alt={salonName} />
       </div>
@@ -106,32 +128,57 @@ const SalonImage = ({ salon }) => {
   );
 };
 
-const SalonContent = ({ title, text, owner }) => {
+const SalonContent = ({ title, text, owner, sectionRef }) => {
+  const contentRef = useRef(null);
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    fadeIn(0.4, contentRef.current);
+  }
+
   return (
-    <TextContainer>
-      <h3>{title}</h3>
-      <q>{text}</q>
-      <p>{owner}</p>
+    <TextContainer ref={contentRef}>
+      <h3 id="content">{title}</h3>
+      <q id="content">{text}</q>
+      <p id="content">{owner}</p>
     </TextContainer>
   );
 };
 
 const Salon = ({ salon }) => {
+  const sectionRef = useRef(null);
+  const nameRef = useRef(null);
+
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4,
+  });
+
+  if (intersection && intersection.isIntersecting) {
+    fadeIn(0, nameRef.current);
+  }
+
   return (
-    <Container>
-      <h2>
+    <Container ref={sectionRef}>
+      <h2 ref={nameRef}>
         <span>채플린헤어</span>
         {salon.salonName}
       </h2>
       <Wrapper>
-        <SalonImage salon={salon} />
+        <SalonImage salon={salon} sectionRef={sectionRef} />
         <SalonContent
+          sectionRef={sectionRef}
           title={salon.title}
           text={salon.text}
           owner={salon.owner}
         />
       </Wrapper>
-      <SalonInfo salon={salon} />
+      <SalonInfo salon={salon} sectionRef={sectionRef} />
     </Container>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import SubHeader from 'components/Layout/Header/SubHeader';
-import AboutUs from 'components/About/AboutUs';
-import CEOMessage from 'components/About/CEOMessage';
-import Feature from 'components/About/Feature';
+import AboutUs from 'components/pages/About/AboutUs';
+import CEOMessage from 'components/pages/About/CEOMessage';
+import Feature from 'components/pages/About/Feature';
 
 const AboutPage = () => {
   const headerObj = {

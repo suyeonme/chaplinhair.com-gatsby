@@ -16,7 +16,12 @@ const PrimaryStyle = styled.div`
   overflow: hidden;
   color: black;
   border: 1px solid black;
-  transition: all 0.8s;
+  ${'' /* transition: all 0.8s; */}
+  transition: color background-color 0.8s;
+
+  ${'' /* TEST */}
+  opacity: 0;
+  transform: translateY(-60px);
 
   &::before {
     content: '';
@@ -49,7 +54,7 @@ export const PrimaryBtn = ({ url, text }) => {
     );
   } else {
     return (
-      <PrimaryStyle>
+      <PrimaryStyle id="instagram">
         <a href={url} target="_blank" rel="noreferrer">
           {text}
         </a>
