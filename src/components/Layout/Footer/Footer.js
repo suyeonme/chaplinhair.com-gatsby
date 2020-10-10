@@ -1,12 +1,10 @@
 import React from 'react';
 
-import ChaplinIcon from 'assets/icons/logo-2.png';
 import Instagram from 'assets/icons/instagram.svg';
 import Youtube from 'assets/icons/youtube.svg';
 import Naver from 'assets/icons/naver.svg';
 
 import {
-  Logo,
   Item,
   SocialIcon,
   FooterContainer,
@@ -85,7 +83,6 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <Logo src={ChaplinIcon} />
       <ItemsContainer>
         {infoItems}
         {socialItems}

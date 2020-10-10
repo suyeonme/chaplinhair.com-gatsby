@@ -20,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    overflow-x: hidden;
     cursor: none;
   }
 
@@ -29,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', 'Spoqa Han Sans', sans-serif;
     font-weight: 300;
     color: black;
+    overflow-x: hidden;
   }
 
   a{

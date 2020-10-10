@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 export const RightWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
 
   li {
     opacity: 0;
@@ -36,7 +36,7 @@ export const LeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
+  width: 40%;
 `;
 
 export const Logo = styled.div`

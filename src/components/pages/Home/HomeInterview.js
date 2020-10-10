@@ -26,7 +26,7 @@ const TextContainer = styled.div`
 
 const H2 = styled.h2`
   font-family: Playfair Display;
-  font-size: 5.5rem;
+  font-size: 5rem;
   font-weight: 500;
   letter-spacing: 2px;
   padding-top: 0.5rem;
@@ -38,9 +38,10 @@ const H2 = styled.h2`
 const H3 = styled.h3`
   font-family: Spoqa Han Sans;
   font-size: 0.8rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 
   opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const Quote = styled.blockquote`
@@ -49,6 +50,7 @@ const Quote = styled.blockquote`
   margin-top: auto;
 
   opacity: 0;
+  transform: translateY(-60px);
 `;
 
 const PartnerImg = styled(RevealImg)`

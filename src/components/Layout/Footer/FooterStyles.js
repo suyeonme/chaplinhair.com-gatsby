@@ -13,12 +13,6 @@ export const FooterContainer = styled.footer`
   color: #f6f3ec;
 `;
 
-export const Logo = styled.img`
-  width: 3rem;
-  height: auto;
-  margin-bottom: 4rem;
-`;
-
 export const ItemsContainer = styled.div`
   width: 75%;
   display: flex;

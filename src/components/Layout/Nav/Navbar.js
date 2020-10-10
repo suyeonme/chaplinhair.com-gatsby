@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import ChaplinLogo from 'assets/icons/logo.png';
+import logo from 'assets/icons/logo.png';
 import HamburgerMenu from 'components/Layout/Nav/HamburgerMenu';
 import Nav from 'components/Layout/Nav/Nav';
 
 const NavbarContainer = styled.nav`
   width: 100%;
-  height: auto;
+  height: 102px;
   display: flex;
   justify-content: center;
   background-color: black;
@@ -20,18 +20,20 @@ const NavbarContainer = styled.nav`
   left: ${(props) => props.isScrolled && '0'};
 `;
 
-const StyledLink = styled(Link)`
-  width: 16%;
-`;
-
 const LogoContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
 `;
 
+const StyledLink = styled(Link)`
+  width: 16%;
+  height: auto;
+`;
+
 const Logo = styled.img`
   width: 100%;
+  height: auto;
 `;
 
 const Navbar = () => {
@@ -56,9 +58,10 @@ const Navbar = () => {
     <NavbarContainer isScrolled={isScrolled}>
       <LogoContainer>
         <StyledLink to="/">
-          <Logo src={ChaplinLogo} />
+          <Logo src={logo} />
         </StyledLink>
       </LogoContainer>
+
       <HamburgerMenu setShow={setShow} show={show} />
       <Nav show={show} setShow={setShow} />
     </NavbarContainer>

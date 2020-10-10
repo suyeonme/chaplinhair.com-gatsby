@@ -11,15 +11,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        fonts: [
-          {
+        fonts: [{
             family: 'Poppins',
             variants: [`200`, `400`, `600`],
           },
-          {
-            family: `Playfair Display`,
-            variants: [`500, 900`],
-          },
+          // {
+          //   family: `Playfair Display`,
+          //   variants: [`500, 900`],
+          // },
         ],
       },
     },

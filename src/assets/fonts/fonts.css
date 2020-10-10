@@ -13,3 +13,17 @@
   src: url('./Spoqa Han Sans Light.woff2'),
     url('./Spoqa Han Sans Light.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./PlayfairDisplay-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 900;
+  src: url('./PlayfairDisplay-Black.woff') format('woff');
+}

@@ -16,15 +16,20 @@ const Overlay = styled.div`
   @supports (backdrop-filter: blur(3px)) {
     backdrop-filter: blur(3px);
   }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Container = styled.div`
-  position: absolute;
+  ${'' /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */}
+  ${'' /* height: 70%; */}
   width: 75%;
-  height: 70%;
+  height: 75%;
   background-color: white;
   border-radius: 3px;
 `;

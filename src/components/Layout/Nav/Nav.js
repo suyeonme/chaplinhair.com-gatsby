@@ -24,8 +24,10 @@ const Nav = ({ show, setShow }) => {
   const socialRef = useRef(null);
 
   useEffect(() => {
-    if (show) document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+    // if (show) document.body.style.overflow = 'hidden';
+    // return () => (document.body.style.overflow = 'unset');
+    if (show) document.body.style.overflowY = 'hidden';
+    return () => (document.body.style.overflowY = 'unset');
   }, [show]);
 
   const handleEnter = () => {

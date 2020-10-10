@@ -25,25 +25,30 @@ const SubTitle = styled.h2`
 `;
 
 const AboutContainer = styled.div`
+  position: relative;
   width: 100%;
-  height: 100vh;
+
+  ${'' /* Keep a ratio */}
+  height: 0;
+  padding-bottom: 55%;
+  margin: 0 auto;
+  ${'' /* height: 100vh; */}
+  ${'' /* height: auto; */}
   background: url(${AboutUsImg});
   background-size: cover;
-  position: relative;
+  background-position: center;
   margin-top: 5rem;
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
   background-color: #f6f3ec;
+  position: absolute;
   top: 7rem;
   left: 3rem;
-  padding: 2rem;
-
   width: 0%;
-  height: 446px;
+  height: 462px;
+  padding: 2rem;
   visibility: hidden;
-  ${'' /* height: auto; */}
 
   p {
     font-size: 1.1rem;
@@ -59,7 +64,7 @@ const TextContainer = styled.div`
     font-weight: 400;
     line-height: 2;
     text-align: center;
-    margin-top: 1rem;
+    padding: 1rem;
 
     opacity: 0;
     transform: translateY(-60px);
@@ -89,7 +94,7 @@ const AboutUs = () => {
       css: { visibility: 'visible' },
     })
       .to(boxRef.current, 0.8, { width: '40%', ease: 'power2.easeInOut' })
-      .to(boxRef.current.childNodes, 0.8, {
+      .to('#fade', 0.8, {
         opacity: 1,
         y: 0,
         ease: 'power4.out',
@@ -108,15 +113,15 @@ const AboutUs = () => {
 
       <AboutContainer ref={sectionRef}>
         <TextContainer ref={boxRef}>
-          <TitleH1>About Us</TitleH1>
-          <p>
+          <TitleH1 id="fade">About Us</TitleH1>
+          <p id="fade">
             트렌드(Trend)는 시간이 지나면 사라지기 마련입니다. 그러나 견고하게
             세워진 문화(Culture)는 끝까지 지속됩니다. 혁신적이고 행복한 뷰티
             문화를 만들어 나가는 곳이 채플린 헤어입니다. 외롭지 않은 미용을 할
             수 있도록 우리는 언제나 당신의 동반자가 되겠습니다. 우리는 당신의
             파트너이자 가족이며 항상 서로의 행복을 응원해주는 팀입니다.
           </p>
-          <span>
+          <span id="fade">
             진심으로 우리 함께 행복하고 자유로운 미용을 했으면 좋겠습니다.
           </span>
         </TextContainer>
