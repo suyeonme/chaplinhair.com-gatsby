@@ -42,6 +42,11 @@ export const LeftWrapper = styled.div`
 export const Logo = styled.div`
   width: 25%;
   height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const activeClassName = 'active';

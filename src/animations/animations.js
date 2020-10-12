@@ -1,30 +1,22 @@
 import gsap from 'gsap';
 
-const tl = gsap.timeline();
+const tl = gsap.timeline({ defaults: { ease: 'power2.out', stagger: 0.3 } });
 
-export const fadeIn = (duration, ...arr) => {
-  gsap.to([...arr], 1, {
-    opacity: 1,
-    y: 0,
-    ease: 'power4.out',
-    stagger: {
-      amount: 0.5,
-    },
-    delay: duration,
-  });
+export const fadeIn = (delayTime, ...arr) => {
+  tl.to([...arr], { opacity: 1, y: 0, duration: 1, delay: delayTime });
 };
 
 export const showModal = (modal, content) => {
   tl.from(modal, 0.5, {
     height: '0%',
-    ease: 'power4.easeInOut',
+    ease: 'power2.easeInOut',
   }).to(
     content,
     0.5,
     {
       opacity: 1,
       y: 0,
-      ease: 'power4.easeInOut',
+      ease: 'power2.easeInOut',
     },
     '-=0.3',
   );

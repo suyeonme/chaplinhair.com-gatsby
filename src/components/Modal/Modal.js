@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
 
-import { InterviewArr } from 'components/pages/Team/Profiles/profilesInfo';
 import { showModal, hideModal } from 'animations/animations';
+import { InterviewArr } from 'components/pages/Team/Profiles/profilesInfo';
 
 const Overlay = styled.div`
   position: fixed;
@@ -23,13 +23,8 @@ const Overlay = styled.div`
 `;
 
 const Container = styled.div`
-  ${'' /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */}
-  ${'' /* height: 70%; */}
-  width: 75%;
   height: 75%;
+  width: 75%;
   background-color: white;
   border-radius: 3px;
 `;

@@ -28,7 +28,6 @@ const Image = styled.div`
 
 const Title = styled.img`
   width: 7rem;
-  height: auto;
   display: block;
   margin: 0 1rem;
   transform: translateX(30px);
@@ -40,16 +39,16 @@ const HomeHeader = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      defaults: { duration: 1, ease: 'power4.inOut' },
+    });
 
-    tl.to(imgRef.current, 1, {
+    tl.to(imgRef.current, {
       height: '100%',
-      ease: 'power2.easeInOut',
       delay: 0.4,
-    }).to(textRef.current, 1, {
+    }).to(textRef.current, {
       opacity: 1,
       x: '0',
-      ease: 'power2.easeInOut',
     });
   }, []);
 

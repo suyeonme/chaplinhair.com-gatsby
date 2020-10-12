@@ -16,7 +16,7 @@ const Table = styled.table`
   margin: 3rem auto 0;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const Row = styled.tr`
@@ -135,7 +135,7 @@ const Feature = () => {
   });
 
   if (intersection && intersection.isIntersecting) {
-    fadeIn(0, titleRef.current, tableRef.current);
+    fadeIn(0, [titleRef.current, tableRef.current]);
   }
 
   return (

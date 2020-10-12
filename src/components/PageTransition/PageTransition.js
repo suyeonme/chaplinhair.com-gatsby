@@ -16,14 +16,14 @@ const PageTransition = ({ location, children }) => {
     const target = el.firstChild;
     const tl = gsap.timeline();
 
-    tl.to(target, 0, { autoAlpha: 1, display: 'block' })
+    tl.to(target, { duration: 0, autoAlpha: 1, display: 'block' })
       .to(target, {
-        height: 0,
         duration: 0.8,
+        height: 0,
         transformOrigin: 'right top',
         ease: 'power4.inOut',
       })
-      .to(target, 0, { autoAlpha: 0, display: 'none' });
+      .to(target, { duration: 0, autoAlpha: 0, display: 'none' });
   };
 
   return (

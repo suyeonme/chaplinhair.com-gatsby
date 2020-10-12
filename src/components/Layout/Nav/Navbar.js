@@ -8,13 +8,16 @@ import Nav from 'components/Layout/Nav/Nav';
 
 const NavbarContainer = styled.nav`
   width: 100%;
-  height: 102px;
+  ${'' /* height: 102px; */}
+  height: ${(props) => (props.isScrolled ? '90px' : '102px')};
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: black;
   z-index: 5;
   transition: all 0.3s ease-in-out;
-  padding: ${(props) => (props.isScrolled ? '0.3rem 1rem' : '0.8rem 1rem')};
+  padding: 0.3rem 1rem;
+  ${'' /* padding: ${(props) => (props.isScrolled ? '0.3rem 1rem' : '0.8rem 1rem')}; */}
   position: ${(props) => props.isScrolled && 'fixed'};
   top: ${(props) => props.isScrolled && '0'};
   left: ${(props) => props.isScrolled && '0'};
@@ -59,6 +62,7 @@ const Navbar = () => {
       <LogoContainer>
         <StyledLink to="/">
           <Logo src={logo} />
+          {/* <img src={logo} /> */}
         </StyledLink>
       </LogoContainer>
 

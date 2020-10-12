@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 
@@ -38,9 +38,11 @@ const Partnership = () => {
     threshold: 0.8,
   });
 
-  if (intersection && intersection.isIntersecting >= 1) {
-    fadeIn(0, titleRef.current);
-  }
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      fadeIn(0, titleRef.current);
+    }
+  }, [intersection]);
 
   return (
     <Wrapper light>

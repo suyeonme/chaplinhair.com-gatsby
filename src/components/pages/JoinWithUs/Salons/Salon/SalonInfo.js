@@ -9,6 +9,7 @@ import Address from 'assets/icons/address.svg';
 import Clock from 'assets/icons/Time.svg';
 import Instagram from 'assets/icons/instagram-black.svg';
 import Kakao from 'assets/icons/kakaotalk.svg';
+import { useEffect } from 'react';
 
 const InfoWrapper = styled.div`
   display: flex;
@@ -61,6 +62,25 @@ const SocialsWrapper = styled.div`
 const SalonInfo = ({ salon, sectionRef }) => {
   const { tel, address, hours, instagram, kakaoHairShop } = salon;
 
+  const infoRef = useRef(null);
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6,
+  });
+
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      gsap.to(infoRef.current, {
+        duration: 0.5,
+        delay: 1,
+        opacity: 1,
+        y: 0,
+        ease: 'power2.inOut',
+      });
+    }
+  }, [intersection]);
+
   const infoArr = [
     { img: Phone, alt: '채플린헤어 전화번호', text: tel },
     { img: Address, alt: '채플린헤어 주소', text: address },
@@ -96,23 +116,6 @@ const SalonInfo = ({ salon, sectionRef }) => {
         {social.img === Instagram ? salon.instagram : 'Kakao Hairshop'}
       </a>
     ));
-  }
-
-  /////
-  const infoRef = useRef(null);
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.6,
-  });
-
-  if (intersection && intersection.isIntersecting >= 1) {
-    gsap.to(infoRef.current, 0.3, {
-      opacity: 1,
-      y: 0,
-      ease: 'power2.easeInOut',
-      delay: 1,
-    });
   }
 
   return (

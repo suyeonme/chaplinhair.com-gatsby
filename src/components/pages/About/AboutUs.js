@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
-import { fadeIn } from 'animations/animations';
 import AboutUsImg from 'assets/img/about-1.jpg';
 import { TitleH1, Container } from 'styles/style';
 
@@ -13,6 +12,8 @@ const Title = styled(TitleH1)`
   letter-spacing: 3px;
   line-height: 1.2;
   margin: 0 auto;
+  opacity: 1;
+  transform: translateY(0);
 `;
 
 const SubTitle = styled.h2`
@@ -21,13 +22,12 @@ const SubTitle = styled.h2`
   margin-top: 1rem;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const AboutContainer = styled.div`
   position: relative;
   width: 100%;
-
   ${'' /* Keep a ratio */}
   height: 0;
   padding-bottom: 55%;
@@ -47,15 +47,21 @@ const TextContainer = styled.div`
   left: 3rem;
   width: 0%;
   height: 462px;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
   visibility: hidden;
+
+  p,
+  span {
+    opacity: 0;
+    transform: translateY(60px);
+  }
 
   p {
     font-size: 1.1rem;
     line-height: 2;
-
-    opacity: 0;
-    transform: translateY(-60px);
   }
 
   span {
@@ -64,54 +70,49 @@ const TextContainer = styled.div`
     font-weight: 400;
     line-height: 2;
     text-align: center;
-    padding: 1rem;
-
-    opacity: 0;
-    transform: translateY(-60px);
+    padding-top: 1rem;
   }
 `;
 
 const AboutUs = () => {
-  const titleRef = useRef(null);
-  const subTitleRef = useRef(null);
-  const boxRef = useRef(null);
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    fadeIn(1.1, titleRef.current, subTitleRef.current);
-  }, []);
+  const boxRef = useRef(null);
+  const titleRef = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.7,
+    threshold: 0.5,
   });
 
-  if (intersection && intersection.isIntersecting) {
-    const tl = gsap.timeline();
-
-    tl.to(boxRef.current, 0, {
-      css: { visibility: 'visible' },
-    })
-      .to(boxRef.current, 0.8, { width: '40%', ease: 'power2.easeInOut' })
-      .to('#fade', 0.8, {
-        opacity: 1,
-        y: 0,
-        ease: 'power4.out',
-        stagger: {
-          amount: 0.3,
-        },
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      const tl = gsap.timeline({
+        defaults: { duration: 0.8, ease: 'power2.inOut' },
       });
-  }
+
+      tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
+        .to(boxRef.current, {
+          duration: 0,
+          css: { visibility: 'visible' },
+        })
+        .to(boxRef.current, { width: '40%' })
+        .to('#fade', {
+          opacity: 1,
+          y: 0,
+          stagger: 0.3,
+        });
+    }
+  }, [intersection]);
 
   return (
-    <Container light>
-      <Title ref={titleRef}>The person who leads Chaplin Hair is you.</Title>
-      <SubTitle ref={subTitleRef}>
+    <Container light ref={sectionRef}>
+      <Title>The person who leads Chaplin Hair is you.</Title>
+      <SubTitle ref={titleRef}>
         채플린 헤어를 이끄는 사람은 여러분입니다.
       </SubTitle>
 
-      <AboutContainer ref={sectionRef}>
+      <AboutContainer>
         <TextContainer ref={boxRef}>
           <TitleH1 id="fade">About Us</TitleH1>
           <p id="fade">

@@ -19,9 +19,9 @@ const Wrapper = styled.div`
 
 const ImgContainer = styled(RevealImg)`
   background: url(${ceoImg});
-  background-size: 105% 105%;
-  background-position: center center;
-  width: 100%;
+  background-size: cover;
+  background-position: top center;
+  width: 80%;
   height: auto;
   min-height: 90vh;
 `;
@@ -33,22 +33,22 @@ const TextContainer = styled.div`
   width: 100%;
   padding-left: 3rem;
 
+  q,
+  p {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
   q {
     display: block;
     font-weight: 400;
     font-size: 1.6rem;
     margin-top: 4rem;
-
-    opacity: 0;
-    transform: translateY(-60px);
   }
 
   p {
     font-size: 1.1rem;
     line-height: 2.5;
-
-    opacity: 0;
-    transform: translateY(-60px);
   }
 `;
 
@@ -56,7 +56,7 @@ const NameContainer = styled.div`
   margin-left: auto;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 
   h4 {
     font-size: 1rem;
@@ -76,7 +76,6 @@ const NameContainer = styled.div`
 const CEOMessage = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
-  const imgRef = useRef(null);
   const overlayRef = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
@@ -85,42 +84,34 @@ const CEOMessage = () => {
     threshold: 0.5,
   });
 
-  if (intersection && intersection.isIntersecting >= 1) {
-    const tl = gsap.timeline();
+  if (intersection && intersection.isIntersecting) {
+    const tl = gsap.timeline({
+      defaults: { duration: 0.8, ease: 'power2.inOut' },
+    });
 
-    tl.to(titleRef.current, 1, {
+    tl.to(titleRef.current, {
       opacity: 1,
       y: 0,
-      ease: 'power2.easeInOut',
     })
-      .to(overlayRef.current, 1, {
+      .to(overlayRef.current, {
         width: '0%',
-        ease: 'power2.easeInOut',
       })
       .to(
-        imgRef.current,
-        0.8,
+        '#text',
         {
-          backgroundSize: '100% 100%',
-          ease: 'power2.easeInOut',
+          opacity: 1,
+          y: 0,
+          stagger: 0.3,
         },
         '-=0.7',
-      )
-      .to('#text', 1, {
-        opacity: 1,
-        y: 0,
-        ease: 'power2.easeInOut',
-        stagger: {
-          amount: 0.3,
-        },
-      });
+      );
   }
 
   return (
     <Container light ref={sectionRef}>
       <TitleH1 ref={titleRef}>CEO Message</TitleH1>
       <Wrapper>
-        <ImgContainer ref={imgRef}>
+        <ImgContainer>
           <Overlay ref={overlayRef} />
         </ImgContainer>
         <TextContainer>

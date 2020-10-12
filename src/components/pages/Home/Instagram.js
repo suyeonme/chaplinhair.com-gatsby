@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 
+import { fadeIn } from 'animations/animations';
 import WomanIcon from 'assets/icons/instagram-1.png';
 import ManIcon from 'assets/icons/instagram-2.png';
-
-import { fadeIn } from 'animations/animations';
 import { CategoryH4, Container } from 'styles/style';
 import { PrimaryBtn } from 'components/Buttons/Buttons';
 
@@ -15,8 +14,9 @@ const Wrapper = styled(Container)`
 
 const IconContainer = styled.div`
   margin-top: 3rem;
+
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const Icon = styled.img`
@@ -30,8 +30,9 @@ const Title = styled.h2`
   letter-spacing: 0.2rem;
   padding: 3rem 0;
   text-align: center;
+
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 
   span {
     font-weight: 600;
@@ -44,12 +45,14 @@ const Instagram = () => {
   const intersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 1,
+    threshold: 0.5,
   });
 
-  if (intersection && intersection.isIntersecting) {
-    fadeIn(0, '#instagram');
-  }
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      fadeIn(0, '#instagram');
+    }
+  }, [intersection]);
 
   return (
     <Wrapper light ref={sectionRef}>

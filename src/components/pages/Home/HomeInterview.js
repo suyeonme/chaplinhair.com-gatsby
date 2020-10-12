@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
@@ -32,7 +32,7 @@ const H2 = styled.h2`
   padding-top: 0.5rem;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const H3 = styled.h3`
@@ -41,7 +41,7 @@ const H3 = styled.h3`
   padding-top: 1rem;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const Quote = styled.blockquote`
@@ -50,13 +50,13 @@ const Quote = styled.blockquote`
   margin-top: auto;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 const PartnerImg = styled(RevealImg)`
   background: url(${partnerImg});
-  background-size: 110% 110%;
-  background-position: center center;
+  background-size: cover;
+  background-position: center;
   width: 22.5rem;
   height: 29.5rem;
   ${'' /* width: 361px; */}
@@ -73,31 +73,26 @@ const HomeInterview = () => {
   const intersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.7,
+    threshold: 0.5,
   });
 
-  if (intersection && intersection.isIntersecting) {
-    const tl = gsap.timeline();
-
-    tl.to(overlayRef.current, 1, { width: '0%', ease: 'power2.easeInOut' })
-      .to(
-        imgRef.current,
-        0.8,
-        {
-          backgroundSize: '100% 100%',
-          ease: 'power2.easeInOut',
-        },
-        '-=0.7',
-      )
-      .to('#fade', 1, {
-        opacity: 1,
-        y: 0,
-        ease: 'power2.easeInOut',
-        stagger: {
-          amount: 0.5,
-        },
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      const tl = gsap.timeline({
+        defaults: { duration: 1, ease: 'power2.inOut' },
       });
-  }
+
+      tl.to(overlayRef.current, { duration: 1.2, width: '0%' }).to(
+        '#fade',
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.3,
+        },
+        '-=0.5',
+      );
+    }
+  }, [intersection]);
 
   return (
     <InterviewContainer light ref={sectionRef}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Transition } from 'react-transition-group';
 
-import Chaplin from 'assets/icons/logo.png';
+import chaplin from 'assets/icons/logo.png';
 import { showNav, hideNav } from 'components/Layout/Nav/animations';
 import {
   Container,
@@ -24,10 +24,8 @@ const Nav = ({ show, setShow }) => {
   const socialRef = useRef(null);
 
   useEffect(() => {
-    // if (show) document.body.style.overflow = 'hidden';
-    // return () => (document.body.style.overflow = 'unset');
     if (show) document.body.style.overflowY = 'hidden';
-    return () => (document.body.style.overflowY = 'unset');
+    return () => (document.body.style.overflowY = 'auto');
   }, [show]);
 
   const handleEnter = () => {
@@ -83,7 +81,7 @@ const Nav = ({ show, setShow }) => {
           <Wrapper>
             <LeftWrapper>
               <Logo ref={logoRef}>
-                <img src={Chaplin} alt="채플린헤어" />
+                <img src={chaplin} alt="채플린헤어" />
               </Logo>
               <div ref={socialRef}>
                 {socials.map((social, i) => (

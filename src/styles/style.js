@@ -14,7 +14,7 @@ export const TitleH1 = styled.h1`
   padding: 1rem 0;
 
   opacity: 0;
-  transform: translateY(-60px);
+  transform: translateY(60px);
 `;
 
 export const CategoryH4 = styled.h4`
@@ -38,6 +38,7 @@ export const Container = styled.section`
   padding: 3rem 3rem;
   color: ${(props) => (props.light ? 'black' : '#F6F3EC')};
   background-color: ${(props) => (props.light ? '#F6F3EC' : 'black')};
+  overflow: hidden;
 `;
 
 export const RevealImg = styled.div`
