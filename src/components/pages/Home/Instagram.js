@@ -22,6 +22,16 @@ const IconContainer = styled.div`
 const Icon = styled.img`
   width: 9rem;
   height: 9rem;
+
+  @media screen and (max-width: 48rem) {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 5rem;
+    height: 5rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -36,6 +46,10 @@ const Title = styled.h2`
 
   span {
     font-weight: 600;
+  }
+
+  @media screen and (max-width: 36rem) {
+    font-size: 2rem;
   }
 `;
 

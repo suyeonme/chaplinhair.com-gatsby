@@ -16,12 +16,30 @@ const InterviewContainer = styled(Container)`
   padding: 6rem 3rem;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 48rem) {
+    padding: 6rem 2rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    flex-direction: column;
+    padding: 3rem 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    padding: 2rem 1rem;
+  }
+  }
 `;
 
 const TextContainer = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+  }
 `;
 
 const H2 = styled.h2`
@@ -33,6 +51,18 @@ const H2 = styled.h2`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 48rem) {
+    font-size: 3.5rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 1.8rem;
+  }
 `;
 
 const H3 = styled.h3`
@@ -51,6 +81,15 @@ const Quote = styled.blockquote`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 48rem) {
+    font-size: 0.7rem;
+    margin-right: 2rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    margin: 1.5rem 0;
+  }
 `;
 
 const PartnerImg = styled(RevealImg)`
@@ -59,10 +98,11 @@ const PartnerImg = styled(RevealImg)`
   background-position: center;
   width: 22.5rem;
   height: 29.5rem;
-  ${'' /* width: 361px; */}
-  ${'' /* height: 465px; */}
-  ${'' /* width: 27%;
-  height: auto; */}
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+    height: 25rem;
+  }
 `;
 
 const HomeInterview = () => {
@@ -82,15 +122,11 @@ const HomeInterview = () => {
         defaults: { duration: 1, ease: 'power2.inOut' },
       });
 
-      tl.to(overlayRef.current, { duration: 1.2, width: '0%' }).to(
-        '#fade',
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.3,
-        },
-        '-=0.5',
-      );
+      tl.to('#fade', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.3,
+      }).to(overlayRef.current, { duration: 1.2, width: '0%' }, '-=0.5');
     }
   }, [intersection]);
 

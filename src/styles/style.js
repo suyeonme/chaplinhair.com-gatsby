@@ -15,6 +15,18 @@ export const TitleH1 = styled.h1`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 64rem) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    font-size: 1.8rem;
+  }
 `;
 
 export const CategoryH4 = styled.h4`
@@ -24,12 +36,20 @@ export const CategoryH4 = styled.h4`
   letter-spacing: 0.1rem;
   color: inherit;
   text-align: ${(props) => (props.left ? 'left' : 'center')};
+
+  @media screen and (max-width: 36rem) {
+    font-size: 0.6rem;
+  }
 `;
 
 export const FirstLetter = styled.span`
   font-size: 1.6rem;
   font-weight: 400;
   color: #b8ac79;
+
+  @media screen and (max-width: 48rem) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const Container = styled.section`

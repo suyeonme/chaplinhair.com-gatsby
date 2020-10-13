@@ -8,6 +8,22 @@ import { TitleH1, CategoryH4, Container } from 'styles/style';
 
 const Wrapper = styled(Container)`
   padding: 6rem 16rem;
+
+  @media screen and (max-width: 64rem) {
+    padding: 6rem 12rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    padding: 5rem 8rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    padding: 3rem 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    padding: 3rem 0;
+  }
 `;
 
 const ProfileContainer = styled.a`
@@ -26,11 +42,20 @@ const ProfileImg = styled.img`
   height: 2.2rem;
   border-radius: 50%;
   margin-right: 1rem;
+
+  @media screen and (max-width: 36rem) {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 `;
 
 const ProfileTitle = styled.p`
   color: inherit;
   font-size: 1.1rem;
+
+  @media screen and (max-width: 36rem) {
+    font-size: 0.8rem;
+  }
 `;
 
 const VideoContainer = styled.div`

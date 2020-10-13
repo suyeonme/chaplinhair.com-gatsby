@@ -18,6 +18,9 @@ const PrimaryStyle = styled.div`
   border: 1px solid black;
   transition: color background-color 0.8s;
 
+  opacity: 0;
+  transform: translateY(60px);
+
   &::before {
     content: '';
     width: 100%;

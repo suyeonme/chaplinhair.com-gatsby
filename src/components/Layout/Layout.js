@@ -2,6 +2,7 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import 'assets/fonts/fonts.css';
+import intersectionObserver from 'intersection-observer';
 
 import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';
@@ -23,12 +24,38 @@ const GlobalStyle = createGlobalStyle`
     cursor: none;
   }
 
-  body{
-    font-size: 62.5%;
+  body {
+    font-size: 62.5%; 
     font-family: 'Poppins', 'Spoqa Han Sans', sans-serif;
     font-weight: 300;
     color: black;
     overflow-x: hidden;
+
+    ${'' /* 1024px
+    992px
+    768px
+    576px
+    320px */}
+
+    ${'' /* @media screen and (max-width: 1024px) {
+      
+    } */}
+
+    @media screen and (max-width: 64rem) {
+      font-size: 56.25%;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 50%;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 31.25%; 
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 25%; 
+    }
   }
 
   a{

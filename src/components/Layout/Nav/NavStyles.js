@@ -19,6 +19,16 @@ export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   padding: 0 5rem;
+
+  @media screen and (max-width: 64rem) {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 36rem) {
+    padding: 0 3rem;
+  }
 `;
 
 export const RightWrapper = styled.ul`
@@ -30,6 +40,12 @@ export const RightWrapper = styled.ul`
     opacity: 0;
     transform: translateY(100px);
   }
+
+  @media screen and (max-width: 64rem) {
+    width: 100%;
+    order: 1;
+    margin: auto;
+  }
 `;
 
 export const LeftWrapper = styled.div`
@@ -37,11 +53,25 @@ export const LeftWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 40%;
+
+  @media screen and (max-width: 64rem) {
+    width: 100%;
+    order: 2;
+    padding-bottom: 3rem;
+  }
 `;
 
 export const Logo = styled.div`
   width: 25%;
   height: auto;
+
+  @media screen and (max-width: 64rem) {
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    margin-bottom: 2rem;
+  }
 
   img {
     width: 100%;
@@ -59,8 +89,15 @@ export const StyledLink = styled(Link).attrs({ activeClassName })`
   display: flex;
   align-items: center;
 
-  &.${activeClassName} {
-    color: #897a44;
+  @media screen and (max-width: 36rem) {
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: start;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 2rem;
   }
 
   &:before {
@@ -75,6 +112,14 @@ export const StyledLink = styled(Link).attrs({ activeClassName })`
     transform: ${(props) =>
       props.iscurrent ? 'translateY(0)' : 'translateY(-10px)'};
     transition: all 0.2s ease-in;
+
+    @media screen and (max-width: 36rem) {
+      display: none;
+    }
+  }
+
+  &.${activeClassName} {
+    color: #897a44;
   }
 
   span {
@@ -82,6 +127,14 @@ export const StyledLink = styled(Link).attrs({ activeClassName })`
     font-family: Spoqa Han Sans;
     font-weight: 300;
     margin-left: 3rem;
+
+    @media screen and (max-width: 36rem) {
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.8rem;
+    }
   }
 `;
 
@@ -93,6 +146,18 @@ export const SocialLink = styled.a`
   margin-right: 3rem;
   letter-spacing: 1px;
   transition: color 0.3s ease-in;
+
+  @media screen and (max-width: 64rem) {
+    margin-right: 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+  }
 
   &:hover {
     color: #b8ac79;

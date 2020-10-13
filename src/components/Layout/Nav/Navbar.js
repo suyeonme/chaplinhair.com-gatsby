@@ -8,34 +8,36 @@ import Nav from 'components/Layout/Nav/Nav';
 
 const NavbarContainer = styled.nav`
   width: 100%;
-  ${'' /* height: 102px; */}
-  height: ${(props) => (props.isScrolled ? '90px' : '102px')};
+  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: black;
   z-index: 5;
-  transition: all 0.3s ease-in-out;
-  padding: 0.3rem 1rem;
-  ${'' /* padding: ${(props) => (props.isScrolled ? '0.3rem 1rem' : '0.8rem 1rem')}; */}
-  position: ${(props) => props.isScrolled && 'fixed'};
-  top: ${(props) => props.isScrolled && '0'};
-  left: ${(props) => props.isScrolled && '0'};
+  position: ${(props) => (props.isScrolled ? 'fixed' : 'relative')};
+  top: 0;
+  left: 0;
+  padding: 0 1rem;
+
+  @media screen and (max-width: 36rem) {
+    padding: 0;
+  }
 `;
 
 const LogoContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-`;
+  width: 170px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
 
-const StyledLink = styled(Link)`
-  width: 16%;
-  height: auto;
+  @media screen and (max-width: 48rem) {
+    width: 140px;
+  }
 `;
 
 const Logo = styled.img`
-  width: 100%;
+  max-width: 100%;
   height: auto;
 `;
 
@@ -60,10 +62,9 @@ const Navbar = () => {
   return (
     <NavbarContainer isScrolled={isScrolled}>
       <LogoContainer>
-        <StyledLink to="/">
+        <Link to="/">
           <Logo src={logo} />
-          {/* <img src={logo} /> */}
-        </StyledLink>
+        </Link>
       </LogoContainer>
 
       <HamburgerMenu setShow={setShow} show={show} />

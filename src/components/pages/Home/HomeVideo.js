@@ -9,10 +9,26 @@ const VideoContainer = styled(Container)`
   align-items: center;
   overflow: hidden;
   padding: 10rem 0;
+
+  @media screen and (max-width: 36rem) {
+    padding: 3rem 0;
+  }
 `;
 
 const Video = styled.div`
   padding: 0 10rem;
+
+  @media screen and (max-width: 48rem) {
+    padding: 0 5rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    padding: 0 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    padding: 0;
+  }
 `;
 
 const HomeVideo = () => {

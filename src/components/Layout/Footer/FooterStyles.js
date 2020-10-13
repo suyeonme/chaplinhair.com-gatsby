@@ -18,6 +18,19 @@ export const ItemsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 64rem) {
+    width: 93%;
+  }
+
+  @media screen and (max-width: 48rem) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const SocialIcon = styled.img`
@@ -29,12 +42,23 @@ export const SocialIcon = styled.img`
 export const Item = styled.div`
   max-width: 400px;
 
+  @media screen and (max-width: 48rem) {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
   h3 {
     font-family: Playfair Display;
     text-transform: uppercase;
     font-size: 1.2rem;
-    padding-bottom: 0.8rem;
     letter-spacing: 2px;
+    padding-bottom: 0.8rem;
+
+    @media screen and (max-width: 48rem) {
+      font-size: 0.9rem;
+      padding-bottom: 1rem;
+    }
   }
 
   span,
@@ -49,6 +73,10 @@ export const Item = styled.div`
     &:hover {
       color: #b8ac79;
       opacity: 1;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 0.7rem;
     }
   }
 `;

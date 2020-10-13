@@ -94,6 +94,7 @@ const AboutUs = () => {
       tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
         .to(boxRef.current, {
           duration: 0,
+          delay: 0.3,
           css: { visibility: 'visible' },
         })
         .to(boxRef.current, { width: '40%' })
@@ -106,13 +107,13 @@ const AboutUs = () => {
   }, [intersection]);
 
   return (
-    <Container light ref={sectionRef}>
+    <Container light>
       <Title>The person who leads Chaplin Hair is you.</Title>
       <SubTitle ref={titleRef}>
         채플린 헤어를 이끄는 사람은 여러분입니다.
       </SubTitle>
 
-      <AboutContainer>
+      <AboutContainer ref={sectionRef}>
         <TextContainer ref={boxRef}>
           <TitleH1 id="fade">About Us</TitleH1>
           <p id="fade">
