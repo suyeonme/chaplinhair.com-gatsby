@@ -25,6 +25,7 @@ export const ItemsContainer = styled.div`
 
   @media screen and (max-width: 48rem) {
     flex-direction: column;
+    width: 85%;
   }
 
   @media screen and (max-width: 36rem) {

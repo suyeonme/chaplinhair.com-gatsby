@@ -15,6 +15,10 @@ import {
 
 const Wrapper = styled.div`
   display: flex;
+
+  @media screen and (max-width: 48rem) {
+    flex-direction: column;
+  }
 `;
 
 const ImgContainer = styled(RevealImg)`
@@ -24,6 +28,19 @@ const ImgContainer = styled(RevealImg)`
   width: 80%;
   height: auto;
   min-height: 90vh;
+
+  @media screen and (max-width: 64rem) {
+    min-height: 50vh;
+  }
+
+  @media screen and (max-width: 48rem) {
+    width: 100%;
+    min-height: 70vh;
+  }
+
+  @media screen and (max-width: 36rem) {
+    min-height: 60vh;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -32,6 +49,10 @@ const TextContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   padding-left: 3rem;
+
+  @media screen and (max-width: 48rem) {
+    padding-left: 0;
+  }
 
   q,
   p {
@@ -44,32 +65,91 @@ const TextContainer = styled.div`
     font-weight: 400;
     font-size: 1.6rem;
     margin-top: 4rem;
+
+    @media screen and (max-width: 48rem) {
+      margin-bottom: 2rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.8rem;
+    }
   }
 
   p {
     font-size: 1.1rem;
     line-height: 2.5;
+
+    @media screen and (max-width: 48rem) {
+      margin-bottom: 3rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.7rem;
+    }
   }
 `;
 
 const NameContainer = styled.div`
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   opacity: 0;
   transform: translateY(60px);
 
   h4 {
     font-size: 1rem;
+
+    @media screen and (max-width: 36rem) {
+      font-size: 0.7rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.5rem;
+    }
   }
 
   span {
     font-size: 1.3rem;
     font-weight: 400;
+
+    @media screen and (max-width: 36rem) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.8rem;
+    }
   }
 
   img {
     width: 10rem;
     height: auto;
+
+    @media screen and (max-width: 36rem) {
+      width: 7rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      width: 5.5rem;
+    }
   }
 `;
 

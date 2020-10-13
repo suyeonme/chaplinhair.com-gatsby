@@ -17,17 +17,48 @@ const Table = styled.table`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 64rem) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 48rem) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 90%;
+    margin: 1rem auto 0;
+  }
 `;
 
 const Row = styled.tr`
   border-collapse: collapse;
   border: 1px solid rgba(161, 159, 159, 0.659);
+
+  @media screen and (max-width: 48rem) {
+    display: block;
+    border: 1px solid transparent;
+  }
 `;
 
 const Cell = styled.td`
   border-collapse: collapse;
   border: 1px solid rgba(161, 159, 159, 0.659);
   padding: 3rem;
+
+  @media screen and (max-width: 48rem) {
+    display: block;
+    border: 1px solid transparent;
+  }
+
+  @media screen and (max-width: 36rem) {
+    padding: 2rem 0;
+  }
 `;
 
 const CellContainer = styled.div`
@@ -41,26 +72,65 @@ const Icon = styled.img`
   width: 3.8rem;
   height: 3.8rem;
   margin-right: 2.5rem;
+
+  @media screen and (max-width: 64rem) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 2rem;
+    height: 2rem;
+  }
 `;
 
 const TextContainer = styled.div`
+  @media screen and (max-width: 48rem) {
+    margin-right: auto;
+  }
+
   h3 {
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 4px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 36rem) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 0.8rem;
+    }
   }
 
   span {
     font-size: 0.7rem;
     letter-spacing: 0;
     margin-left: 1rem;
+
+    @media screen and (max-width: 36rem) {
+      font-size: 0.4rem;
+    }
   }
 
   p {
     font-size: 0.8rem;
     line-height: 1.7;
     white-space: pre-line;
+
+    @media screen and (max-width: 48rem) {
+      line-height: 2;
+    }
+
+    @media screen and (max-width: 36rem) {
+      font-size: 0.5rem;
+    }
   }
 `;
 

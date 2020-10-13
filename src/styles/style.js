@@ -13,8 +13,8 @@ export const TitleH1 = styled.h1`
   color: inherit;
   padding: 1rem 0;
 
-  opacity: 0;
-  transform: translateY(60px);
+  ${'' /* opacity: 0;
+  transform: translateY(60px); */}
 
   @media screen and (max-width: 64rem) {
     font-size: 2.5rem;
@@ -25,7 +25,11 @@ export const TitleH1 = styled.h1`
   }
 
   @media screen and (max-width: 36rem) {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 1.4rem;
   }
 `;
 
@@ -50,6 +54,14 @@ export const FirstLetter = styled.span`
   @media screen and (max-width: 48rem) {
     font-size: 1.3rem;
   }
+
+  @media screen and (max-width: 36rem) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Container = styled.section`
@@ -59,6 +71,14 @@ export const Container = styled.section`
   color: ${(props) => (props.light ? 'black' : '#F6F3EC')};
   background-color: ${(props) => (props.light ? '#F6F3EC' : 'black')};
   overflow: hidden;
+
+  @media screen and (max-width: 36rem) {
+    padding: 3rem 2rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    padding: 3rem 1rem;
+  }
 `;
 
 export const RevealImg = styled.div`

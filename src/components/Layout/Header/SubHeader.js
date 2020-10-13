@@ -22,6 +22,14 @@ const Title = styled.h1`
   letter-spacing: 2px;
   color: inherit;
   padding: 1rem 0;
+
+  @media screen and (max-width: 32rem) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 const SubTitle = styled.p`
@@ -30,13 +38,26 @@ const SubTitle = styled.p`
   line-height: 2;
   text-align: center;
   margin-top: 1rem;
+
+  @media screen and (max-width: 64rem) {
+    max-width: 60%;
+  }
+
+  @media screen and (max-width: 48rem) {
+    max-width: 70%;
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 32rem) {
+    max-width: 85%;
+    font-size: 0.7rem;
+  }
 `;
 
 const SubHeader = ({ title, subTitle }) => {
   return (
     <Container>
-      <Title>{title}</Title>
-      <SubTitle>{subTitle}</SubTitle>
+      <Title> {title} </Title> <SubTitle> {subTitle} </SubTitle>{' '}
     </Container>
   );
 };
