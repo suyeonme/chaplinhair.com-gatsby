@@ -1,83 +1,15 @@
 import React, { useRef } from 'react';
-import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
 
 import { showModal, hideModal } from 'animations/animations';
 import { InterviewArr } from 'components/pages/Team/Profiles/profilesInfo';
-
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-
-  @supports (backdrop-filter: blur(3px)) {
-    backdrop-filter: blur(3px);
-  }
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Container = styled.div`
-  height: 75%;
-  width: 75%;
-  background-color: white;
-  border-radius: 3px;
-`;
-
-const Content = styled.div`
-  display: flex;
-  height: 100%;
-`;
-
-const ContentImg = styled.div`
-  width: 40%;
-  height: 100%;
-  background: ${(props) => `url(${props.img})`};
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-`;
-
-const ContentText = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 60%;
-  padding: 3rem;
-
-  opacity: 0;
-  transform: translateY(60px);
-
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.3;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-
-    &:not(:first-child) {
-      margin-top: 2rem;
-    }
-  }
-
-  p {
-    font-size: 0.85rem;
-    line-height: 2;
-    white-space: pre-line;
-  }
-`;
+import {
+  Overlay,
+  Container,
+  Content,
+  ContentImg,
+  ContentText,
+} from 'components/Modal/ModalStyle';
 
 const Modal = ({ show, setShow, id }) => {
   const modalRef = useRef(null);

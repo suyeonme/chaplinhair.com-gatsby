@@ -5,14 +5,15 @@ import { Container } from 'styles/style';
 import Profile from 'components/pages/Team/Profiles/Profile';
 import { profileArr } from 'components/pages/Team/Profiles/profilesInfo';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
 const TeamContainer = styled(Container)`
   background-color: white;
   color: black;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 const Profiles = () => {

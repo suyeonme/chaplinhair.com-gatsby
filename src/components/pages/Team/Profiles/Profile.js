@@ -4,10 +4,15 @@ import styled from 'styled-components';
 import Modal from 'components/Modal/Modal';
 
 const Container = styled.div`
-  width: 25%;
+  width: 280px;
   height: auto;
-  padding: 0 2rem 4rem;
+  padding: 0 1rem;
+  margin-bottom: 4rem;
   cursor: pointer;
+
+  @media screen and (max-width: 36rem) {
+    padding: 0;
+  }
 `;
 
 const Name = styled.h3`
