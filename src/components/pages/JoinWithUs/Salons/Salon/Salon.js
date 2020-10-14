@@ -11,6 +11,10 @@ const Container = styled.div`
 
   &:not(:last-child) {
     margin-bottom: 8rem;
+
+    @media screen and (max-width: 36rem) {
+      margin-bottom: 5rem;
+    }
   }
 
   h2 {
@@ -22,9 +26,25 @@ const Container = styled.div`
     opacity: 0;
     transform: translateY(60px);
 
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.8rem;
+    }
+
     span {
       font-size: 1rem;
       margin-right: 0.5rem;
+
+      @media screen and (max-width: 20rem) {
+        font-size: 0.6rem;
+      }
     }
 
     &:before {
@@ -44,12 +64,20 @@ const Wrapper = styled.div`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 36rem) {
+    flex-direction: column;
+  }
 `;
 
 const ImgContainer = styled.div`
   width: 50%;
   height: auto;
   font-size: 0;
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+  }
 `;
 
 const ImgSubContainer = styled.div`
@@ -67,14 +95,49 @@ const TextContainer = styled.div`
   text-align: center;
   padding: 3rem 0 3rem 3rem;
 
+  @media screen and (max-width: 48rem) {
+    padding: 0 0 0 3rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
   h3 {
     font-size: 1.6rem;
     margin-bottom: 3rem;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 1.1rem;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.8rem;
+    }
   }
 
   q,
   p {
     font-size: 1rem;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.7rem;
+    }
   }
 
   q {

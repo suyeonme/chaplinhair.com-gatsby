@@ -19,6 +19,10 @@ const InfoWrapper = styled.div`
 
   opacity: 0;
   transform: translateY(60px);
+
+  @media screen and (max-width: 36rem) {
+    flex-direction: column;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -27,6 +31,11 @@ const InfoContainer = styled.div`
   justify-content: center;
   margin-left: 3rem;
 
+  @media screen and (max-width: 36rem) {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
   p,
   a {
     display: flex;
@@ -34,11 +43,31 @@ const InfoContainer = styled.div`
 
     &:not(:last-child) {
       margin-bottom: 1.4rem;
+
+      @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+        margin-bottom: 1rem;
+      }
+
+      @media screen and (max-width: 48rem) {
+        margin-bottom: 1rem;
+      }
     }
   }
 
   p {
     font-size: 1rem;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.7rem;
+    }
   }
 
   a {
@@ -46,6 +75,19 @@ const InfoContainer = styled.div`
     font-weight: 400;
     margin-top: 0.5rem;
     letter-spacing: 1px;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 0.8rem;
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 48rem) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 20rem) {
+      font-size: 0.7rem;
+    }
   }
 `;
 
@@ -53,10 +95,23 @@ const Icon = styled.img`
   width: 1.3rem;
   height: 1.3rem;
   margin-right: 1rem;
+
+  @media screen and (max-width: 48rem) {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    margin-right: 0.5rem;
+  }
 `;
 
 const SocialsWrapper = styled.div`
   margin-top: 1rem;
+
+  @media screen and (max-width: 48rem) {
+    margin-top: 0;
+  }
 `;
 
 const SalonInfo = ({ salon, sectionRef }) => {

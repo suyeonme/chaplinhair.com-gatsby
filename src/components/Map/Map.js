@@ -6,8 +6,24 @@ import './Map.css';
 import Address from 'assets/icons/address.svg';
 
 const MapContainer = styled.div`
-  width: 30rem;
+  width: 50%;
   height: 40vh;
+
+  @media screen and (max-width: 64rem) {
+    height: 17vh;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 64rem) {
+    height: 30vh;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+    height: 45vh;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+  }
 `;
 
 const Map = ({ lat, lng, mapId, name }) => {
@@ -34,7 +50,9 @@ const Map = ({ lat, lng, mapId, name }) => {
     (map) => {
       const imageSrc = Address;
       const imageSize = new kakao.maps.Size(40, 45);
-      const imageOption = { offset: new kakao.maps.Point(27, 69) };
+      const imageOption = {
+        offset: new kakao.maps.Point(27, 69),
+      };
 
       const markerImage = new kakao.maps.MarkerImage(
         imageSrc,

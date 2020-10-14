@@ -8,6 +8,14 @@ import Image from 'assets/img/partnership.jpg';
 
 const Wrapper = styled(Container)`
   padding-bottom: 10rem;
+
+  @media screen and (max-width: 48rem) {
+    padding-bottom: 6rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    padding-bottom: 3rem;
+  }
 `;
 
 const Title = styled(TitleH1)`
@@ -17,6 +25,22 @@ const Title = styled(TitleH1)`
   writing-mode: vertical-rl;
   text-orientation: mixed;
   margin-left: 1rem;
+
+  @media screen and (max-width: 64rem) {
+    font-size: 4rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    font-size: 2.7rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    text-orientation: initial;
+    writing-mode: initial;
+    order: 1;
+    padding: 0 0 1rem;
+    margin: 0 auto;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -26,6 +50,22 @@ const ImgContainer = styled.div`
   position: relative;
   display: flex;
   align-items: start;
+
+  @media screen and (max-width: 48rem) {
+    margin-left: 2.5rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  img {
+    @media screen and (max-width: 36rem) {
+      order: 2;
+    }
+  }
 `;
 
 const Partnership = () => {
