@@ -64,7 +64,7 @@ const Title = styled.div`
     position: absolute;
     top: 4rem;
     left: 50%;
-    z-index: 15;
+    ${'' /* z-index: 15; */}
     transform: translate(-50%, -50%) rotate(90deg);
     padding: 0;
   }

@@ -31,16 +31,6 @@ const GlobalStyle = createGlobalStyle`
     color: black;
     overflow-x: hidden;
 
-    ${'' /* 1024px
-    992px
-    768px
-    576px
-    320px */}
-
-    ${'' /* @media screen and (max-width: 1024px) {
-      
-    } */}
-
     @media screen and (max-width: 64rem) {
       font-size: 56.25%;
     }
@@ -102,13 +92,13 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({ location, children }) => {
   return (
-    <>
+    <div style={{ overflow: 'hidden' }}>
       <Cursor />
       <Navbar />
       <GlobalStyle />
       <PageTransition location={location}>{children}</PageTransition>
       <Footer />
-    </>
+    </div>
   );
 };
 
