@@ -192,7 +192,7 @@ const CEOMessage = () => {
       <TitleH1 ref={titleRef}>CEO Message</TitleH1>
       <Wrapper>
         <ImgContainer>
-          <Overlay ref={overlayRef} />
+          <Overlay ref={overlayRef} color="#f6f3ec" />
         </ImgContainer>
         <TextContainer>
           <q id="text">“꿈을 크게 가져라. 부서져도 조각은 크다.”</q>

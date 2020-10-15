@@ -12,8 +12,8 @@ const Title = styled(TitleH1)`
   letter-spacing: 3px;
   line-height: 1.2;
   margin: 0 auto;
-  ${'' /* opacity: 1;
-  transform: translateY(0); */}
+  opacity: 1;
+  transform: translateY(0);
 
   @media screen and (max-width: 64rem) {
     width: 70%;
@@ -39,8 +39,8 @@ const SubTitle = styled.h2`
   text-align: center;
   margin-top: 1rem;
 
-  ${'' /* opacity: 0;
-  transform: translateY(60px); */}
+  opacity: 0;
+  transform: translateY(60px);
 
   @media screen and (max-width: 48rem) {
     font-size: 1.2rem;
@@ -80,14 +80,15 @@ const TextContainer = styled.div`
   top: 7rem;
   left: 3rem;
   width: 40%;
-  height: 462px;
+  ${'' /* height: 462px; */}
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2rem;
+  ${'' /* padding: 0 2rem; */}
+  padding: 2rem;
 
-  ${'' /* width: 0%; */}
-  ${'' /* visibility: hidden; */}
+  height: 0;
+  visibility: hidden;
 
   @media screen and (max-width: 64rem) {
     width: 60%;
@@ -95,19 +96,27 @@ const TextContainer = styled.div`
   }
 
   @media screen and (max-width: 48rem) {
+    width: 100%;
     position: static;
     top: auto;
     left: auto;
+    margin-top: 2rem;
+    padding: 0;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 50.75rem) {
     width: 100%;
-    height: auto;
+    position: static;
+    top: auto;
+    left: auto;
     margin-top: 2rem;
     padding: 0;
   }
 
   p,
   span {
-    ${'' /* opacity: 0;
-    transform: translateY(60px); */}
+    opacity: 0;
+    transform: translateY(60px);
   }
 
   p {
@@ -156,26 +165,38 @@ const AboutUs = () => {
     threshold: 0.5,
   });
 
-  // useEffect(() => {
-  //   if (intersection && intersection.isIntersecting) {
-  //     const tl = gsap.timeline({
-  //       defaults: { duration: 0.8, ease: 'power2.inOut' },
-  //     });
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      const tl = gsap.timeline({
+        defaults: { duration: 0.8, ease: 'power2.inOut' },
+      });
 
-  //     tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
-  //       .to(boxRef.current, {
-  //         duration: 0,
-  //         delay: 0.3,
-  //         css: { visibility: 'visible' },
-  //       })
-  //       .to(boxRef.current, { width: '40%' })
-  //       .to('#fade', {
-  //         opacity: 1,
-  //         y: 0,
-  //         stagger: 0.3,
-  //       });
-  //   }
-  // }, [intersection]);
+      tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
+        .set(boxRef.current, {
+          duration: 0,
+          css: { visibility: 'visible' },
+        })
+        .to(boxRef.current, { height: 'auto' })
+        .to('#fade', {
+          opacity: 1,
+          y: 0,
+          stagger: 0.3,
+        });
+
+      // tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
+      //   .to(boxRef.current, {
+      //     duration: 0,
+      //     delay: 0.3,
+      //     css: { visibility: 'visible' },
+      //   })
+      //   .to(boxRef.current, { width: '40%' })
+      //   .to('#fade', {
+      //     opacity: 1,
+      //     y: 0,
+      //     stagger: 0.3,
+      //   });
+    }
+  }, [intersection]);
 
   return (
     <Container light>
@@ -188,7 +209,6 @@ const AboutUs = () => {
       <Wrapper>
         <AboutContainer ref={sectionRef} />
         <TextContainer ref={boxRef}>
-          {/* <TitleH1 id="fade">About Us</TitleH1> */}
           <TitleH1 id="fade">Chaplin Hair is,</TitleH1>
           <p id="fade">
             트렌드(Trend)는 시간이 지나면 사라지기 마련입니다. 그러나 견고하게

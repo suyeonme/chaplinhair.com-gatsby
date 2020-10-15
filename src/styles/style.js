@@ -13,8 +13,8 @@ export const TitleH1 = styled.h1`
   color: inherit;
   padding: 1rem 0;
 
-  ${'' /* opacity: 0;
-  transform: translateY(60px); */}
+  opacity: 0;
+  transform: translateY(60px);
 
   @media screen and (max-width: 64rem) {
     font-size: 2.5rem;
@@ -99,5 +99,5 @@ export const Overlay = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #f6f3ec;
+  background-color: ${(props) => props.color && props.color};
 `;

@@ -13,7 +13,7 @@ const NavbarContainer = styled.nav`
   justify-content: flex-end;
   align-items: center;
   background-color: black;
-  z-index: 5;
+  z-index: 15;
   position: ${(props) => (props.isScrolled ? 'fixed' : 'relative')};
   top: 0;
   left: 0;

@@ -145,7 +145,7 @@ const HomeInterview = () => {
         </Quote>
       </TextContainer>
       <PartnerImg ref={imgRef}>
-        <Overlay ref={overlayRef} />
+        <Overlay ref={overlayRef} color="#f6f3ec" />
       </PartnerImg>
     </InterviewContainer>
   );

@@ -11,7 +11,7 @@ const VideoContainer = styled(Container)`
   padding: 10rem 0;
 
   @media screen and (max-width: 36rem) {
-    padding: 3rem 0;
+    padding: 5rem 0;
   }
 `;
 
