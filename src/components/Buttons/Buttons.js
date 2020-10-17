@@ -19,8 +19,8 @@ const PrimaryStyle = styled.div`
   border: 1px solid black;
   transition: color background-color 0.8s;
 
-  opacity: 0;
-  transform: translateY(60px);
+  opacity: ${(props) => (props.isAnimated ? 0 : 1)};
+  transform: ${(props) => props.isAnimated && 'translateY(60px)'};
 
   &::before {
     content: '';
@@ -44,16 +44,16 @@ const PrimaryStyle = styled.div`
   }
 `;
 
-export const PrimaryBtn = ({ url, text }) => {
+export const PrimaryBtn = ({ url, text, isAnimated }) => {
   if (url === '/') {
     return (
       <Link to="/">
-        <PrimaryStyle>Back to Home</PrimaryStyle>
+        <PrimaryStyle isAnimated={isAnimated}>Back to Home</PrimaryStyle>
       </Link>
     );
   } else {
     return (
-      <PrimaryStyle id="instagram">
+      <PrimaryStyle id="instagram" isAnimated={isAnimated}>
         <a href={url} target="_blank" rel="noreferrer">
           {text}
         </a>

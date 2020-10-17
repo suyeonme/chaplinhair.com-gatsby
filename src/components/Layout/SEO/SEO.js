@@ -21,6 +21,11 @@ const SEO = () => {
           siteUrl
           image
           author
+          socialLinks {
+            instagram
+            blog
+            youtube
+          }
         }
       }
     }
@@ -39,6 +44,10 @@ const SEO = () => {
       />
       <meta property="og:image" content={data.site.siteMetadata.image} />
       <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
+      <link
+        rel="canonical"
+        href={`${data.site.siteMetadata.siteUrl}/index.html`}
+      />
       <title>{`${currentPath} | ${data.site.siteMetadata.title}`}</title>
 
       <script type="application/ld+json">
@@ -49,9 +58,9 @@ const SEO = () => {
                 "url": "http://www.chaplinhair.com",
                 "name": "채플린헤어",
                 "sameAs": [
-                  "${data.site.siteMetadata.instagram}",
-                  "${data.site.siteMetadata.blog}",
-                  "${data.site.siteMetadata.youtube}",
+                  "${data.site.siteMetadata.socialLinks.instagram}",
+                  "${data.site.siteMetadata.socialLinks.blog}",
+                  "${data.site.siteMetadata.socialLinks.youtube}",
                 ]
               }
             `}

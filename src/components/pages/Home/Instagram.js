@@ -98,6 +98,7 @@ const Instagram = () => {
       <PrimaryBtn
         url={data.site.siteMetadata.socialLinks.instagram}
         text="Show More"
+        isAnimated={true}
       />
     </Wrapper>
   );
