@@ -19,6 +19,7 @@ const ImgContainer = styled.div`
   background: url(${ceoImg});
   background-size: cover;
   background-position: top center;
+  background-repeat: no-repeat;
   width: 80%;
   height: auto;
   min-height: 90vh;
@@ -65,6 +66,11 @@ const TextContainer = styled.div`
     font-size: 1.6rem;
     margin-top: 4rem;
 
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
     @media screen and (max-width: 48rem) {
       margin-bottom: 2rem;
     }
@@ -89,6 +95,11 @@ const TextContainer = styled.div`
   p {
     font-size: 1.1rem;
     line-height: 2.5;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 0.9rem;
+      line-height: 2.2;
+    }
 
     @media screen and (max-width: 48rem) {
       margin-bottom: 3rem;
@@ -116,6 +127,10 @@ const NameContainer = styled.div`
   h4 {
     font-size: 1rem;
 
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 0.8rem;
+    }
+
     @media screen and (max-width: 36rem) {
       font-size: 0.7rem;
     }
@@ -129,6 +144,10 @@ const NameContainer = styled.div`
     font-size: 1.3rem;
     font-weight: 400;
 
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      font-size: 1.1rem;
+    }
+
     @media screen and (max-width: 36rem) {
       font-size: 1rem;
     }
@@ -141,6 +160,10 @@ const NameContainer = styled.div`
   img {
     width: 10rem;
     height: auto;
+
+    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+      width: 8rem;
+    }
 
     @media screen and (max-width: 36rem) {
       width: 7rem;

@@ -51,6 +51,10 @@ export const FirstLetter = styled.span`
   font-weight: 400;
   color: #b8ac79;
 
+  @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+    font-size: 1.3rem;
+  }
+
   @media screen and (max-width: 48rem) {
     font-size: 1.3rem;
   }

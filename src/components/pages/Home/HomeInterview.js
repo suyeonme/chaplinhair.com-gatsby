@@ -89,10 +89,11 @@ const Quote = styled.blockquote`
 const PartnerImg = styled.div`
   background: url(${partnerImg});
   background-position: center;
+  background-repeat: no-repeat;
   width: 22.5rem;
   height: 29.5rem;
   filter: ${(props) => props.isHover && `grayscale(100%)`};
-  background-size: ${(props) => (props.isHover ? `103% 103%` : `100% 100%`)};
+  background-size: ${(props) => (props.isHover ? `103%` : `100%`)};
   transition: all 0.5s;
   position: relative;
   overflow: hidden;

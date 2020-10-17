@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Map from 'components/Map/Map';
 import Phone from 'assets/icons/phone-black.svg';
 import Address from 'assets/icons/address.svg';
-import Clock from 'assets/icons/Time.svg';
+import Clock from 'assets/icons/time.svg';
 import Instagram from 'assets/icons/instagram-black.svg';
 import Kakao from 'assets/icons/kakaotalk.svg';
 import { useEffect } from 'react';

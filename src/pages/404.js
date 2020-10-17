@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   h2 {
     font-weight: 500;
     font-size: 2rem;
+    margin: 1rem 0;
   }
 
   p {
@@ -35,10 +36,13 @@ const Wrapper = styled.div`
     font-weight: 300;
     line-height: 2;
     margin-bottom: 3rem;
+    font-size: 1rem;
   }
 
   span {
     display: block;
+    font-size: 1rem;
+    margin-top: 1rem;
   }
 `;
 
