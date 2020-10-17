@@ -1,16 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
 import partnerImg from 'assets/img/interview.jpg';
-import {
-  CategoryH4,
-  Container,
-  FirstLetter,
-  Overlay,
-  RevealImg,
-} from 'styles/style';
+import { CategoryH4, Container, FirstLetter, Overlay } from 'styles/style';
 
 const InterviewContainer = styled(Container)`
   padding: 6rem 3rem;
@@ -92,12 +86,16 @@ const Quote = styled.blockquote`
   }
 `;
 
-const PartnerImg = styled(RevealImg)`
+const PartnerImg = styled.div`
   background: url(${partnerImg});
-  background-size: cover;
   background-position: center;
   width: 22.5rem;
   height: 29.5rem;
+  filter: ${(props) => props.isHover && `grayscale(100%)`};
+  background-size: ${(props) => (props.isHover ? `103% 103%` : `100% 100%`)};
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
 
   @media screen and (max-width: 36rem) {
     width: 100%;
@@ -106,9 +104,10 @@ const PartnerImg = styled(RevealImg)`
 `;
 
 const HomeInterview = () => {
+  const [isHover, setIsHover] = useState(false);
+
   const sectionRef = useRef(null);
   const overlayRef = useRef(null);
-  const imgRef = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
     root: null,
@@ -144,7 +143,11 @@ const HomeInterview = () => {
           해볼 만하지 않을까요?
         </Quote>
       </TextContainer>
-      <PartnerImg ref={imgRef}>
+      <PartnerImg
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        isHover={isHover}
+      >
         <Overlay ref={overlayRef} color="#f6f3ec" />
       </PartnerImg>
     </InterviewContainer>

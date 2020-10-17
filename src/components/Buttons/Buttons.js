@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const PrimaryStyle = styled.div`
   display: inline-block;
@@ -59,4 +60,9 @@ export const PrimaryBtn = ({ url, text }) => {
       </PrimaryStyle>
     );
   }
+};
+
+PrimaryStyle.propTypes = {
+  url: PropTypes.string,
+  text: PropTypes.string,
 };

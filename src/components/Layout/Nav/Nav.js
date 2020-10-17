@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Transition } from 'react-transition-group';
+import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
 import chaplin from 'assets/icons/logo.png';
 import { showNav, hideNav } from 'components/Layout/Nav/animations';
@@ -48,6 +50,20 @@ const Nav = ({ show, setShow }) => {
     );
   };
 
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          socialLinks {
+            instagram
+            youtube
+            blog
+          }
+        }
+      }
+    }
+  `);
+
   const items = [
     { path: '/', en: 'Home', ko: '홈' },
     { path: '/about', en: 'About', ko: '소개' },
@@ -56,12 +72,9 @@ const Nav = ({ show, setShow }) => {
   ];
 
   const socials = [
-    { name: 'Instagram', link: 'https://www.instagram.com/chaplin__hair' },
-    {
-      name: 'Youtube',
-      link: 'https://www.youtube.com/channel/UCsMa9_c-dbnRYOLG1Maa2og',
-    },
-    { name: 'Blog', link: 'https://blog.naver.com/ckffl4325' },
+    { name: 'Instagram', link: data.site.siteMetadata.socialLinks.instagram },
+    { name: 'Youtube', link: data.site.siteMetadata.socialLinks.youtube },
+    { name: 'Blog', link: data.site.siteMetadata.socialLinks.blog },
   ];
 
   return (
@@ -114,3 +127,8 @@ const Nav = ({ show, setShow }) => {
 };
 
 export default Nav;
+
+Nav.propTypes = {
+  setShow: PropTypes.func,
+  show: PropTypes.bool,
+};

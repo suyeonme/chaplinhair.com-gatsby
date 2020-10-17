@@ -77,16 +77,13 @@ const AboutContainer = styled.div`
 const TextContainer = styled.div`
   background-color: #f6f3ec;
   position: absolute;
-  top: 7rem;
-  left: 3rem;
   width: 40%;
-  ${'' /* height: 462px; */}
+  top: 4rem;
+  left: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  ${'' /* padding: 0 2rem; */}
   padding: 2rem;
-
   height: 0;
   visibility: hidden;
 
@@ -168,12 +165,11 @@ const AboutUs = () => {
   useEffect(() => {
     if (intersection && intersection.isIntersecting) {
       const tl = gsap.timeline({
-        defaults: { duration: 0.8, ease: 'power2.inOut' },
+        defaults: { duration: 0.7, ease: 'power2.inOut' },
       });
 
       tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
         .set(boxRef.current, {
-          duration: 0,
           css: { visibility: 'visible' },
         })
         .to(boxRef.current, { height: 'auto' })
@@ -182,19 +178,6 @@ const AboutUs = () => {
           y: 0,
           stagger: 0.3,
         });
-
-      // tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
-      //   .to(boxRef.current, {
-      //     duration: 0,
-      //     delay: 0.3,
-      //     css: { visibility: 'visible' },
-      //   })
-      //   .to(boxRef.current, { width: '40%' })
-      //   .to('#fade', {
-      //     opacity: 1,
-      //     y: 0,
-      //     stagger: 0.3,
-      //   });
     }
   }, [intersection]);
 

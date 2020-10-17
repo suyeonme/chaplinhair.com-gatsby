@@ -1,6 +1,7 @@
 /*global kakao */
 import React, { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import './Map.css';
 import Address from 'assets/icons/address.svg';
@@ -97,3 +98,10 @@ const Map = ({ lat, lng, mapId, name }) => {
 };
 
 export default Map;
+
+Map.propTypes = {
+  lat: PropTypes.string,
+  lng: PropTypes.string,
+  mapId: PropTypes.string,
+  name: PropTypes.string,
+};

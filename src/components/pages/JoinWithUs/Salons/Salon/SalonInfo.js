@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
+import PropTypes from 'prop-types';
 
 import Map from 'components/Map/Map';
 import Phone from 'assets/icons/phone-black.svg';
@@ -190,3 +191,8 @@ const SalonInfo = ({ salon, sectionRef }) => {
 };
 
 export default SalonInfo;
+
+SalonInfo.propTypes = {
+  salon: PropTypes.object,
+  sectionRef: PropTypes.object,
+};

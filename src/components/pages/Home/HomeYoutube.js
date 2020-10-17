@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 
@@ -85,12 +86,24 @@ const HomeYoutube = () => {
     if (intersection && intersection.isIntersecting) fadeIn(0, '#youtube');
   }, [intersection]);
 
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          socialLinks {
+            youtube
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Wrapper bgColor="black" color="#F6F3EC" ref={sectionRef}>
       <CategoryH4>Social</CategoryH4>
       <TitleH1 id="youtube">Youtube</TitleH1>
       <ProfileContainer
-        href="https://www.youtube.com/channel/UCsMa9_c-dbnRYOLG1Maa2og?view_as=subscriber"
+        href={data.site.siteMetadata.socialLinks.youtube}
         target="_black"
         id="youtube"
       >

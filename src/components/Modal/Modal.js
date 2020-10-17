@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Transition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 
 import { showModal, hideModal } from 'animations/animations';
 import { InterviewArr } from 'components/pages/Team/Profiles/profilesInfo';
@@ -67,3 +68,9 @@ const Modal = ({ show, setShow, id }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  show: PropTypes.bool,
+  setShow: PropTypes.func,
+  id: PropTypes.string,
+};

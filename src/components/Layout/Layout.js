@@ -4,6 +4,7 @@ import reset from 'styled-reset';
 import 'assets/fonts/fonts.css';
 import intersectionObserver from 'intersection-observer';
 
+import SEO from 'components/Layout/SEO/SEO';
 import Navbar from 'components/Layout/Nav/Navbar';
 import Footer from 'components/Layout/Footer/Footer';
 import PageTransition from 'components/PageTransition/PageTransition';
@@ -93,6 +94,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ location, children }) => {
   return (
     <div style={{ overflow: 'hidden' }}>
+      <SEO />
       <Cursor />
       <Navbar />
       <GlobalStyle />

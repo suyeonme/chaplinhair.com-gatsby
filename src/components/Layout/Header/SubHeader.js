@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.header`
   width: 100%;
@@ -63,3 +64,8 @@ const SubHeader = ({ title, subTitle }) => {
 };
 
 export default SubHeader;
+
+SubHeader.propTypes = {
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+};

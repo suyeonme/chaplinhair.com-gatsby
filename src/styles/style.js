@@ -81,18 +81,6 @@ export const Container = styled.section`
   }
 `;
 
-export const RevealImg = styled.div`
-  position: relative;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform: scale(1.6);
-  }
-`;
-
 export const Overlay = styled.div`
   position: absolute;
   width: 100%;

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 
@@ -72,6 +73,18 @@ const Instagram = () => {
     }
   }, [intersection]);
 
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          socialLinks {
+            instagram
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Wrapper light ref={sectionRef}>
       <CategoryH4>Social</CategoryH4>
@@ -83,7 +96,7 @@ const Instagram = () => {
         Follow us on <span>Instagram</span>
       </Title>
       <PrimaryBtn
-        url="https://www.instagram.com/chaplin__hair/"
+        url={data.site.siteMetadata.socialLinks.instagram}
         text="Show More"
       />
     </Wrapper>

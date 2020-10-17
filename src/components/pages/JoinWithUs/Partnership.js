@@ -4,7 +4,8 @@ import { useIntersection } from 'react-use';
 
 import { fadeIn } from 'animations/animations';
 import { Container, TitleH1 } from 'styles/style';
-import Image from 'assets/img/partnership.jpg';
+import mobileImg from 'assets/img/partnership-sm.jpg';
+import desktopImg from 'assets/img/partnership-lg.jpg';
 
 const Wrapper = styled(Container)`
   padding-bottom: 10rem;
@@ -87,7 +88,12 @@ const Partnership = () => {
   return (
     <Wrapper light>
       <ImgContainer ref={sectionRef}>
-        <img src={Image} alt="채플린헤어 파트너쉽" />
+        <img
+          srcSet={`${mobileImg} 400w, ${desktopImg} 1200w`}
+          sizes="(max-width: 36rem) 20vw, 1200px"
+          alt="채플린헤어 파트너쉽"
+          src={desktopImg}
+        />
         <Title ref={titleRef}>Partnership</Title>
       </ImgContainer>
     </Wrapper>

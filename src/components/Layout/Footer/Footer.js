@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Instagram from 'assets/icons/instagram.svg';
 import Youtube from 'assets/icons/youtube.svg';
@@ -13,16 +14,34 @@ import {
 } from 'components/Layout/Footer/FooterStyles';
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          socialLinks {
+            instagram
+            youtube
+            blog
+            tel
+            email
+            address
+            addressEn
+          }
+        }
+      }
+    }
+  `);
+
   const info = [
     {
       title: 'Contact Us',
-      tel: 'Tel: 062-262-4325',
-      email: 'Email: ckffl4325@naver.com',
+      tel: `Tel: ${data.site.siteMetadata.socialLinks.tel}`,
+      email: `Email: ${data.site.siteMetadata.socialLinks.email}`,
     },
     {
       title: 'Adress',
-      ko: '광주 북구 대천로 140-4(문흥동), 채플린헤어',
-      eg: '140-4, Daecheon-ro, Buk-gu, Gwangju, Republic of Korea',
+      ko: data.site.siteMetadata.socialLinks.address,
+      eg: data.site.siteMetadata.socialLinks.addressEn,
     },
   ];
 
@@ -30,15 +49,18 @@ const Footer = () => {
     {
       icon: Instagram,
       iconTitle: 'Instagram',
-      url: 'https://www.instagram.com/chaplin__hair/',
+      url: data.site.siteMetadata.socialLinks.instagram,
     },
     {
       icon: Youtube,
       iconTitle: 'Youtube',
-      url:
-        'https://www.youtube.com/channel/UCsMa9_c-dbnRYOLG1Maa2og?view_as=subscriber',
+      url: data.site.siteMetadata.socialLinks.youtube,
     },
-    { icon: Naver, iconTitle: 'Blog', url: 'https://blog.naver.com/ckffl4325' },
+    {
+      icon: Naver,
+      iconTitle: 'Blog',
+      url: data.site.siteMetadata.socialLinks.blog,
+    },
   ];
 
   const infoItems = info.map((item, i) => {
@@ -46,7 +68,7 @@ const Footer = () => {
       <Item key={i}>
         <h3>{item.title}</h3>
         {item.tel ? (
-          <a href="tel:062-262-4325">
+          <a href={`tel:${data.site.siteMetadata.socialLinks.tel}`}>
             <p>{item.tel}</p>
           </a>
         ) : (
@@ -54,7 +76,9 @@ const Footer = () => {
         )}
         {item.email ? (
           <p>
-            <a href="mailto:ckffl4325@naver.com">{item.email}</a>
+            <a href={`mailto:${data.site.siteMetadata.socialLinks.email}`}>
+              {item.email}
+            </a>
           </p>
         ) : (
           <p>{item.eg}</p>

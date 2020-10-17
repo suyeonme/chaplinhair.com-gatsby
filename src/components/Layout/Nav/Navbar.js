@@ -27,9 +27,11 @@ const NavbarContainer = styled.nav`
 const LogoContainer = styled.div`
   width: 170px;
   position: absolute;
+  top: 50%;
   left: 0;
   right: 0;
   margin: auto;
+  transform: translateY(-50%);
 
   @media screen and (max-width: 48rem) {
     width: 140px;

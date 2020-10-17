@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Modal from 'components/Modal/Modal';
 
@@ -59,3 +60,14 @@ const Profile = ({ img, img2, egName, koName, id }) => {
 };
 
 export default Profile;
+
+Profile.propTypes = {
+  salon: PropTypes.object,
+  sectionRef: PropTypes.object,
+
+  img: PropTypes.string,
+  img2: PropTypes.string,
+  egName: PropTypes.string,
+  koName: PropTypes.string,
+  id: PropTypes.number,
+};

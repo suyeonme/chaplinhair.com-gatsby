@@ -1,17 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
 import ceoImg from 'assets/img/ceo-message.jpg';
 import signiture from 'assets/img/handwritten.png';
-import {
-  TitleH1,
-  Container,
-  FirstLetter,
-  RevealImg,
-  Overlay,
-} from 'styles/style';
+import { TitleH1, Container, FirstLetter, Overlay } from 'styles/style';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,13 +15,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const ImgContainer = styled(RevealImg)`
+const ImgContainer = styled.div`
   background: url(${ceoImg});
   background-size: cover;
   background-position: top center;
   width: 80%;
   height: auto;
   min-height: 90vh;
+  filter: ${(props) => props.isHover && `grayscale(100%)`};
+  background-size: ${(props) => (props.isHover ? `103%` : `100%`)};
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
 
   @media screen and (max-width: 64rem) {
     min-height: 50vh;
@@ -154,6 +153,8 @@ const NameContainer = styled.div`
 `;
 
 const CEOMessage = () => {
+  const [isHover, setIsHover] = useState(false);
+
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const overlayRef = useRef(null);
@@ -191,7 +192,11 @@ const CEOMessage = () => {
     <Container light ref={sectionRef}>
       <TitleH1 ref={titleRef}>CEO Message</TitleH1>
       <Wrapper>
-        <ImgContainer>
+        <ImgContainer
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          isHover={isHover}
+        >
           <Overlay ref={overlayRef} color="#f6f3ec" />
         </ImgContainer>
         <TextContainer>

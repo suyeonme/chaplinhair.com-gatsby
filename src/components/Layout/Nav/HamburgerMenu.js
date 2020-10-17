@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const HamburgerSVG = styled.svg`
   position: relative;
@@ -49,3 +50,8 @@ const Hamburger = ({ setShow, show }) => {
 };
 
 export default Hamburger;
+
+Hamburger.propTypes = {
+  setShow: PropTypes.func,
+  show: PropTypes.bool,
+};

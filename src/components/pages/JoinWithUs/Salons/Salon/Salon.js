@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useIntersection } from 'react-use';
+import PropTypes from 'prop-types';
 
 import { fadeIn } from 'animations/animations';
 import SalonInfo from 'components/pages/JoinWithUs/Salons/Salon/SalonInfo';
@@ -226,3 +227,7 @@ const Salon = ({ salon }) => {
 };
 
 export default Salon;
+
+Salon.propTypes = {
+  salon: PropTypes.object,
+};
