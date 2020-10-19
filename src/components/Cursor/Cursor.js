@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const MouseCursor = styled.div`
   position: fixed;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  ${'' /* z-index: 9999; */}
+  z-index: 80;
   width: 30px;
   height: 30px;
   border: 2px solid #b8ac79;

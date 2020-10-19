@@ -66,7 +66,8 @@ export const ContentImg = styled.div`
 
   @media screen and (max-width: 36rem) {
     width: 100%;
-    height: 80%;
+    ${'' /* height: 80%; */}
+    height: 40%;
   }
 
   @media screen and (orientation: landscape) and (max-width: 36rem) {
@@ -103,6 +104,8 @@ export const ContentText = styled.div`
   @media screen and (max-width: 36rem) {
     width: 100%;
     padding: 1.5rem;
+
+    height: 60%;
   }
 
   h2 {

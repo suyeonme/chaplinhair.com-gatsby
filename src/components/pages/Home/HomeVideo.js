@@ -37,7 +37,7 @@ const HomeVideo = () => {
       <Video
         dangerouslySetInnerHTML={{
           __html: `
-          <video loop autoPlay muted>
+          <video loop autoPlay muted playsinline>
             <source src="${require('assets/video/chaplin-video.mp4')}" type="video/mp4" />
             Your browser does not support the video tag. I suggest you upgrade your browser.
           </video>            

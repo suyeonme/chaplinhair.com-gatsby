@@ -49,7 +49,6 @@ const SEO = () => {
         href={`${data.site.siteMetadata.siteUrl}/index.html`}
       />
       <title>{`${currentPath} | ${data.site.siteMetadata.title}`}</title>
-
       <script type="application/ld+json">
         {`
               {
@@ -60,7 +59,7 @@ const SEO = () => {
                 "sameAs": [
                   "${data.site.siteMetadata.socialLinks.instagram}",
                   "${data.site.siteMetadata.socialLinks.blog}",
-                  "${data.site.siteMetadata.socialLinks.youtube}",
+                  "${data.site.siteMetadata.socialLinks.youtube}"
                 ]
               }
             `}
