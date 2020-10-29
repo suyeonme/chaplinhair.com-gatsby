@@ -2,7 +2,6 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import 'assets/fonts/fonts.css';
-import intersectionObserver from 'intersection-observer';
 
 import SEO from 'components/Layout/SEO/SEO';
 import Navbar from 'components/Layout/Nav/Navbar';

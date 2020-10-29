@@ -211,7 +211,6 @@ const Salon = ({ salon }) => {
         <span>채플린헤어</span>
         {salon.salonName}
       </h2>
-
       <Wrapper ref={wrapperRef}>
         <SalonImage salon={salon} />
         <SalonContent
