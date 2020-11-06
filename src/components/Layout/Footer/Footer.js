@@ -111,7 +111,9 @@ const Footer = () => {
         {infoItems}
         {socialItems}
       </ItemsContainer>
-      <p>© Copyright {new Date().getFullYear()} by Chplin Hair</p>
+      <p style={{ fontSize: '1rem' }}>
+        © Copyright {new Date().getFullYear()} by Chplin Hair
+      </p>
     </FooterContainer>
   );
 };

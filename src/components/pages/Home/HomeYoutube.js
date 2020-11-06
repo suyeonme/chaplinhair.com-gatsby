@@ -1,29 +1,24 @@
 import React, { useRef, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
 
 import { fadeIn } from 'animations/animations';
 import YoutubeImg from 'assets/img/youtube-profile.jpg';
 import { TitleH1, CategoryH4, Container } from 'styles/style';
 
 const Wrapper = styled(Container)`
-  padding: 6rem 16rem;
+  padding: 10rem 20rem;
 
-  @media screen and (max-width: 64rem) {
-    padding: 6rem 12rem;
+  @media screen and (max-width: 1200px) {
+    padding: 10rem 12rem;
   }
 
-  @media screen and (max-width: 48rem) {
-    padding: 5rem 8rem;
+  @media screen and (max-width: 768px) {
+    padding: 10rem 8rem;
   }
 
-  @media screen and (max-width: 36rem) {
-    padding: 3rem 2rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    padding: 3rem 0;
+  @media screen and (max-width: 576px) {
+    padding: 10rem 3rem;
   }
 `;
 
@@ -32,37 +27,23 @@ const ProfileContainer = styled.a`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 1rem;
   margin-bottom: 3rem;
-
   opacity: 0;
   transform: translateY(60px);
 `;
 
 const ProfileImg = styled.img`
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 3.8rem;
+  height: 3.8rem;
   border-radius: 50%;
-  margin-right: 1rem;
-
-  @media screen and (max-width: 36rem) {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-`;
-
-const ProfileTitle = styled.p`
-  color: inherit;
-  font-size: 1.1rem;
-
-  @media screen and (max-width: 36rem) {
-    font-size: 0.8rem;
-  }
+  margin-right: 2rem;
 `;
 
 const VideoContainer = styled.div`
   position: relative;
   padding-bottom: 56.25%;
-  ${'' /* height: 0; */}
+  height: 0;
 
   iframe {
     position: absolute;
@@ -76,15 +57,9 @@ const VideoContainer = styled.div`
 const HomeYoutube = () => {
   const sectionRef = useRef(null);
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
-
   useEffect(() => {
-    if (intersection && intersection.isIntersecting) fadeIn(0, '#youtube');
-  }, [intersection]);
+    fadeIn(0, sectionRef.current, '#youtube');
+  }, []);
 
   const data = useStaticQuery(graphql`
     query {
@@ -108,7 +83,7 @@ const HomeYoutube = () => {
         id="youtube"
       >
         <ProfileImg src={YoutubeImg} alt="채플린헤어 유튜브" />
-        <ProfileTitle>찰리의 미용 TV</ProfileTitle>
+        <p>찰리의 미용 TV</p>
       </ProfileContainer>
 
       <VideoContainer>

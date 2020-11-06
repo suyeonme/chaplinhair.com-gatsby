@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
 
 import { fadeIn } from 'animations/animations';
 import { Container, TitleH1, CategoryH4 } from 'styles/style';
@@ -8,39 +7,42 @@ import Originality from 'assets/icons/originality.svg';
 import Team from 'assets/icons/team.svg';
 import Education from 'assets/icons/education.svg';
 import Culture from 'assets/icons/culture.svg';
+import { useEffect } from 'react';
+
+const Wrapper = styled(Container)`
+  padding: 10rem 15rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 10rem 6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10rem 15rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 10rem 3rem;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 576px) {
+    padding: 10rem 15rem;
+  }
+`;
 
 const Table = styled.table`
   border-collapse: collapse;
   border-style: hidden;
-  width: 85%;
-  margin: 3rem auto 0;
-
+  width: 100%;
+  margin: 6rem auto 0;
   opacity: 0;
   transform: translateY(60px);
-
-  @media screen and (max-width: 64rem) {
-    width: 100%;
-  }
-
-  @media screen and (max-width: 48rem) {
-    width: 80%;
-  }
-
-  @media screen and (max-width: 36rem) {
-    width: 100%;
-  }
-
-  @media screen and (max-width: 36rem) {
-    width: 90%;
-    margin: 1rem auto 0;
-  }
 `;
 
 const Row = styled.tr`
   border-collapse: collapse;
   border: 1px solid rgba(161, 159, 159, 0.659);
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     display: block;
     border: 1px solid transparent;
   }
@@ -49,15 +51,11 @@ const Row = styled.tr`
 const Cell = styled.td`
   border-collapse: collapse;
   border: 1px solid rgba(161, 159, 159, 0.659);
-  padding: 3rem;
+  padding: 5rem;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     display: block;
     border: 1px solid transparent;
-  }
-
-  @media screen and (max-width: 36rem) {
-    padding: 2rem 0;
   }
 `;
 
@@ -69,68 +67,33 @@ const CellContainer = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 3.8rem;
-  height: 3.8rem;
-  margin-right: 2.5rem;
-
-  @media screen and (max-width: 64rem) {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    width: 2.3rem;
-    height: 2.3rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    width: 2rem;
-    height: 2rem;
-  }
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-right: 5rem;
 `;
 
 const TextContainer = styled.div`
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     margin-right: auto;
   }
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 2.3rem;
     font-weight: 400;
-    letter-spacing: 4px;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
-
-    @media screen and (max-width: 36rem) {
-      font-size: 1rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.8rem;
-    }
   }
 
   span {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     letter-spacing: 0;
     margin-left: 1rem;
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.4rem;
-    }
   }
 
   p {
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     line-height: 1.7;
     white-space: pre-line;
-
-    @media screen and (max-width: 48rem) {
-      line-height: 2;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.5rem;
-    }
   }
 `;
 
@@ -198,18 +161,12 @@ const Feature = () => {
   const titleRef = useRef(null);
   const tableRef = useRef(null);
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
-
-  if (intersection && intersection.isIntersecting) {
-    fadeIn(0, [titleRef.current, tableRef.current]);
-  }
+  useEffect(() => {
+    fadeIn(0, sectionRef.current, titleRef.current, tableRef.current);
+  }, []);
 
   return (
-    <Container bgColor="black" color="#F6F3EC" ref={sectionRef}>
+    <Wrapper bgColor="black" color="#F6F3EC" ref={sectionRef}>
       <CategoryH4>Features</CategoryH4>
       <TitleH1 ref={titleRef}>Pillars of culture</TitleH1>
       <Table ref={tableRef}>
@@ -222,7 +179,7 @@ const Feature = () => {
           </Row>
         </tbody>
       </Table>
-    </Container>
+    </Wrapper>
   );
 };
 

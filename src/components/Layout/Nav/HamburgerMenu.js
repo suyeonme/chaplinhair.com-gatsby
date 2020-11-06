@@ -8,6 +8,7 @@ const HamburgerSVG = styled.svg`
   user-select: none;
   transform: ${(props) => props.show && `rotate(45deg)`};
   transition: transform 400ms;
+  width: 7rem;
 `;
 
 const HamburgerLine = styled.path`
@@ -32,7 +33,6 @@ const Hamburger = ({ setShow, show }) => {
   return (
     <HamburgerSVG
       viewBox="0 0 100 100"
-      width="70"
       show={show}
       onClick={() => setShow(!show)}
     >

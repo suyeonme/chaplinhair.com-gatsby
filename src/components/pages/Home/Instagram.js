@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
 
 import { fadeIn } from 'animations/animations';
 import WomanIcon from 'assets/icons/instagram-1.png';
@@ -15,63 +14,35 @@ const Wrapper = styled(Container)`
 
 const IconContainer = styled.div`
   margin-top: 3rem;
-
   opacity: 0;
   transform: translateY(60px);
 `;
 
 const Icon = styled.img`
-  width: 9rem;
-  height: 9rem;
-
-  @media screen and (max-width: 48rem) {
-    width: 7rem;
-    height: 7rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    width: 5rem;
-    height: 5rem;
-  }
+  width: 13rem;
+  height: 13rem;
 `;
 
 const Title = styled.h2`
   font-family: Playfair Display;
-  font-size: 2.2rem;
+  font-size: 3.8rem;
   letter-spacing: 0.2rem;
-  padding: 3rem 0;
   text-align: center;
-
+  padding: 6rem 0;
   opacity: 0;
   transform: translateY(60px);
 
   span {
     font-weight: 600;
   }
-
-  @media screen and (max-width: 36rem) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    font-size: 1.4rem;
-  }
 `;
 
 const Instagram = () => {
   const sectionRef = useRef(null);
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
-
   useEffect(() => {
-    if (intersection && intersection.isIntersecting) {
-      fadeIn(0, '#instagram');
-    }
-  }, [intersection]);
+    fadeIn(0, sectionRef.current, '#instagram');
+  }, []);
 
   const data = useStaticQuery(graphql`
     query {

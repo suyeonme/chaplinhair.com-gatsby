@@ -4,109 +4,115 @@ import gsap from 'gsap';
 
 import mobileImg from 'assets/img/header-mobile.jpg';
 import desktopImg from 'assets/img/header.jpg';
-import titleImg from 'assets/icons/header-title.svg';
 import { Overlay } from 'styles/style';
 
 const Container = styled.header`
+  position: relative;
   width: 100%;
   height: auto;
   background-color: black;
   display: flex;
-  padding-top: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
 
-  @media screen and (max-width: 36rem) {
-    position: relative;
-    padding-top: 4.5rem;
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
   }
 `;
 
 const ImageContainer = styled.div`
-  width: 90%;
+  flex: 1;
   height: auto;
+  transform: translateX(2rem);
 
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 576px) {
+    order: 2;
     width: 100%;
+    transform: translateX(0);
   }
 `;
 
 const DesktopImg = styled.img`
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 576px) {
     display: none;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 576px) {
+    display: block;
   }
 `;
 
 const MobileImg = styled.img`
   display: none;
 
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 576px) {
     display: block;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 576px) {
+    display: none;
   }
 `;
 
-const Title = styled.div`
-  width: 10%;
-  height: auto;
-
+const Title = styled.h1`
+  display: block;
+  font-family: 'Great Vibes';
+  color: #b8ac79;
+  writing-mode: vertical-rl;
+  font-size: 11rem;
+  letter-spacing: 0.5rem;
+  padding-top: 2rem;
+  transform: translateX(-2rem);
   opacity: 0;
-  transform: translateX(60px);
 
-  @media screen and (max-width: 36rem) {
-    width: 14%;
-    position: absolute;
-    top: -5rem;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg);
+  @media screen and (max-width: 1200px) {
+    font-size: 7rem;
   }
 
-  @media screen and (orientation: landscape) and (max-width: 36rem) {
-    top: -10rem;
+  @media screen and (max-width: 576px) {
+    order: 1;
+    writing-mode: initial;
+    transform: translateX(0) translateY(2rem);
   }
 
-  @media screen and (max-width: 20rem) {
-    width: 16%;
+  @media screen and (orientation: landscape) and (max-width: 812px) {
+    padding-top: 0;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 576px) {
+    font-size: 10rem;
   }
 `;
 
 const HomeHeader = () => {
   const imgRef = useRef(null);
-  const textRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
       defaults: { duration: 1.4, ease: 'power4.inOut' },
     });
 
-    tl.to(imgRef.current, { width: 0, delay: 0.5 })
-      .to(
-        textRef.current,
-        {
-          opacity: 1,
-          x: 0,
-        },
-        '-=0.9',
-      )
-      .to(
-        textRef.current,
-        {
-          x: 0,
-          scale: 1,
-          duration: 0.4,
-        },
-        '-=0.4',
-      );
+    tl.to(imgRef.current, { width: 0, delay: 0.8 }).to(
+      titleRef.current,
+      {
+        opacity: 1,
+      },
+      '-=0.7',
+    );
   }, []);
 
   return (
     <Container>
-      <Title ref={textRef}>
-        <img src={titleImg} alt="채플린 헤어" />
-      </Title>
-
       <ImageContainer>
         <DesktopImg src={desktopImg} alt="채플린 헤어" />
         <MobileImg src={mobileImg} alt="채플린 헤어" />
         <Overlay ref={imgRef} color="black" />
       </ImageContainer>
+      <Title ref={titleRef}>Chaplin Hair</Title>
     </Container>
   );
 };

@@ -45,9 +45,10 @@ const SEO = () => {
       <meta property="og:image" content={data.site.siteMetadata.image} />
       <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
       <link
-        rel="canonical"
-        href={`${data.site.siteMetadata.siteUrl}/index.html`}
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap"
+        rel="stylesheet"
       />
+      <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}`} />
       <title>{`${currentPath} | ${data.site.siteMetadata.title}`}</title>
       <script type="application/ld+json">
         {`

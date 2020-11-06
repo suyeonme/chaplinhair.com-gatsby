@@ -4,84 +4,47 @@ import styled from 'styled-components';
 // Gold: #B8AC79
 
 export const TitleH1 = styled.h1`
-  font-size: 3rem;
   font-family: Playfair Display;
+  font-size: 4.5rem;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 2px;
   color: inherit;
   padding: 1rem 0;
-
   opacity: 0;
   transform: translateY(60px);
 
-  @media screen and (max-width: 64rem) {
-    font-size: 2.5rem;
-  }
-
-  @media screen and (max-width: 48rem) {
-    font-size: 2rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    font-size: 1.4rem;
+  @media screen and (max-width: 576px) {
+    font-size: 3.8rem;
   }
 `;
 
 export const CategoryH4 = styled.h4`
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
   color: inherit;
   text-align: ${(props) => (props.left ? 'left' : 'center')};
-
-  @media screen and (max-width: 36rem) {
-    font-size: 0.6rem;
-  }
 `;
 
 export const FirstLetter = styled.span`
   font-size: 1.6rem;
   font-weight: 400;
   color: #b8ac79;
-
-  @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-    font-size: 1.3rem;
-  }
-
-  @media screen and (max-width: 48rem) {
-    font-size: 1.3rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    font-size: 1rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    font-size: 0.8rem;
-  }
 `;
 
 export const Container = styled.section`
   width: 100%;
   height: auto;
-  padding: 3rem 3rem;
+  padding: 10rem 6rem;
   color: ${(props) => (props.light ? 'black' : '#F6F3EC')};
   background-color: ${(props) => (props.light ? '#F6F3EC' : 'black')};
   overflow: hidden;
 
-  @media screen and (max-width: 36rem) {
-    padding: 3rem 2rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    padding: 3rem 1rem;
+  @media screen and (max-width: 576px) {
+    padding: 10rem 3rem;
   }
 `;
 

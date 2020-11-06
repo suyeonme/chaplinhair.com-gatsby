@@ -1,45 +1,44 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
-import gsap from 'gsap';
 
 import ceoImg from 'assets/img/ceo-message.jpg';
 import signiture from 'assets/img/handwritten.png';
 import { TitleH1, Container, FirstLetter, Overlay } from 'styles/style';
 
+import { fadeInWithImg } from 'animations/animations';
+
 const Wrapper = styled.div`
   display: flex;
+  margin-top: 1.5rem;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 812px) {
     flex-direction: column;
   }
 `;
 
 const ImgContainer = styled.div`
   background: url(${ceoImg});
-  background-size: cover;
+  background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
-  width: 80%;
-  height: auto;
-  min-height: 90vh;
-  filter: ${(props) => props.isHover && `grayscale(100%)`};
-  background-size: ${(props) => (props.isHover ? `103%` : `100%`)};
+  width: 40%;
+  display: inline-block;
+  margin: 0 auto;
   transition: all 0.5s;
   position: relative;
-  overflow: hidden;
 
-  @media screen and (max-width: 64rem) {
-    min-height: 50vh;
+  &:after {
+    padding-top: 150%; /* height / width (1350/900) */
+    display: block;
+    content: '';
   }
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 812px) {
     width: 100%;
-    min-height: 70vh;
   }
 
-  @media screen and (max-width: 36rem) {
-    min-height: 60vh;
+  &:hover {
+    filter: grayscale(100%);
   }
 `;
 
@@ -47,11 +46,12 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  padding-left: 3rem;
+  width: 60%;
+  padding-left: 5rem;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 812px) {
     padding-left: 0;
+    width: 100%;
   }
 
   q,
@@ -63,54 +63,25 @@ const TextContainer = styled.div`
   q {
     display: block;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     margin-top: 4rem;
 
-    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-      font-size: 1.2rem;
-      margin-top: 1rem;
+    @media screen and (max-width: 812px) {
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+      text-align: center;
     }
 
-    @media screen and (max-width: 48rem) {
-      margin-bottom: 2rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-top: 2rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-top: 2rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 0.8rem;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 3rem;
     }
   }
 
   p {
-    font-size: 1.1rem;
     line-height: 2.5;
 
-    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-      font-size: 0.9rem;
-      line-height: 2.2;
-    }
-
-    @media screen and (max-width: 48rem) {
-      margin-bottom: 3rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.8rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 0.7rem;
+    @media screen and (max-width: 812px) {
+      margin-bottom: 10rem;
     }
   }
 `;
@@ -120,106 +91,43 @@ const NameContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
   opacity: 0;
   transform: translateY(60px);
 
   h4 {
-    font-size: 1rem;
-
-    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-      font-size: 0.8rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.7rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 0.5rem;
-    }
+    font-size: 1.7rem;
   }
 
   span {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: 400;
-
-    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-      font-size: 1.1rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 1rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 0.8rem;
-    }
   }
 
   img {
-    width: 10rem;
+    width: 17rem;
     height: auto;
-
-    @media screen and (orientation: landscape) and (max-width: 50.75rem) {
-      width: 8rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      width: 7rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      width: 5.5rem;
-    }
   }
 `;
 
 const CEOMessage = () => {
-  const [isHover, setIsHover] = useState(false);
-
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const overlayRef = useRef(null);
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
-
-  if (intersection && intersection.isIntersecting) {
-    const tl = gsap.timeline({
-      defaults: { duration: 0.8, ease: 'power2.inOut' },
-    });
-
-    tl.to(titleRef.current, {
-      opacity: 1,
-      y: 0,
-    })
-      .to(overlayRef.current, {
-        width: '0%',
-      })
-      .to(
-        '#text',
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.3,
-        },
-        '-=0.7',
-      );
-  }
+  useEffect(() => {
+    fadeInWithImg(
+      sectionRef.current,
+      overlayRef.current,
+      titleRef.current,
+      '#text',
+    );
+  }, []);
 
   return (
     <Container light ref={sectionRef}>
       <TitleH1 ref={titleRef}>CEO Message</TitleH1>
       <Wrapper>
-        <ImgContainer
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          isHover={isHover}
-        >
+        <ImgContainer>
           <Overlay ref={overlayRef} color="#f6f3ec" />
         </ImgContainer>
         <TextContainer>

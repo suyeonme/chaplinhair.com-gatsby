@@ -9,75 +9,75 @@ export const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 3rem 0 0.5rem;
   color: #f6f3ec;
+  padding: 6rem 0 1rem;
 `;
 
 export const ItemsContainer = styled.div`
   width: 75%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 
-  @media screen and (max-width: 64rem) {
-    width: 93%;
-  }
-
-  @media screen and (max-width: 48rem) {
-    flex-direction: column;
+  @media screen and (max-width: 1200px) {
     width: 85%;
   }
 
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 576px) {
     width: 80%;
-    margin-bottom: 2rem;
   }
 `;
 
 export const SocialIcon = styled.img`
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1.5rem;
 `;
 
 export const Item = styled.div`
   max-width: 400px;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     &:not(:last-child) {
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
     }
   }
 
   h3 {
     font-family: Playfair Display;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     letter-spacing: 2px;
-    padding-bottom: 0.8rem;
+    padding-bottom: 1.5rem;
 
-    @media screen and (max-width: 48rem) {
-      font-size: 0.9rem;
-      padding-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+      padding-bottom: 1.5rem;
     }
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
   }
 
   span,
   p {
-    font-size: 0.9rem;
-    font-weight: 300;
+    font-size: 1.5rem;
     letter-spacing: 1px;
     opacity: 0.8;
     transition: all 0.2s ease-in;
-    margin-bottom: 0.5rem;
 
     &:hover {
       color: #b8ac79;
       opacity: 1;
-    }
-
-    @media screen and (max-width: 48rem) {
-      font-size: 0.7rem;
     }
   }
 `;
@@ -85,5 +85,5 @@ export const Item = styled.div`
 export const SocialContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;

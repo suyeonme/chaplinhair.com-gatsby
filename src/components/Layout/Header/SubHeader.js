@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Container = styled.header`
   width: 100%;
   height: auto;
-  padding: 6rem 0;
+  padding: 10rem 0;
   color: #f6f3ec;
   background-color: black;
   display: flex;
@@ -15,43 +15,36 @@ const Container = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
   font-family: Playfair Display;
+  font-size: 5rem;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 2px;
   color: inherit;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 
-  @media screen and (max-width: 32rem) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    font-size: 1.4rem;
+  @media screen and (max-width: 576px) {
+    font-size: 4rem;
   }
 `;
 
 const SubTitle = styled.p`
   max-width: 45%;
-  font-size: 1.2rem;
   line-height: 2;
   text-align: center;
   margin-top: 1rem;
 
-  @media screen and (max-width: 64rem) {
+  @media screen and (max-width: 1200px) {
     max-width: 60%;
   }
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     max-width: 70%;
-    font-size: 1rem;
   }
 
-  @media screen and (max-width: 32rem) {
+  @media screen and (max-width: 576px) {
     max-width: 85%;
-    font-size: 0.7rem;
   }
 `;
 

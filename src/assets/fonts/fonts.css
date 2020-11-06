@@ -25,3 +25,9 @@
   font-weight: 900;
   src: url('./PlayfairDisplay-Black.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  src: url('./GreatVibes-Regular.woff') format('woff');
+}

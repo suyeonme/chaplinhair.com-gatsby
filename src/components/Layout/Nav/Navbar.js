@@ -8,34 +8,26 @@ import Nav from 'components/Layout/Nav/Nav';
 
 const NavbarContainer = styled.nav`
   width: 100%;
-  height: 70px;
+  height: 9rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: black;
+  padding: 0 2rem;
   z-index: 15;
   position: ${(props) => (props.isScrolled ? 'fixed' : 'relative')};
   top: 0;
   left: 0;
-  padding: 0 1rem;
-
-  @media screen and (max-width: 36rem) {
-    padding: 0;
-  }
 `;
 
 const LogoContainer = styled.div`
-  width: 170px;
+  width: 17rem;
   position: absolute;
   top: 50%;
   left: 0;
   right: 0;
   margin: auto;
   transform: translateY(-50%);
-
-  @media screen and (max-width: 48rem) {
-    width: 140px;
-  }
 `;
 
 const Logo = styled.img`

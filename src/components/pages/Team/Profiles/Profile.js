@@ -7,24 +7,24 @@ import Modal from 'components/Modal/Modal';
 const Container = styled.div`
   width: 280px;
   height: auto;
-  padding: 0 1rem;
-  margin-bottom: 4rem;
+  padding: 0 2rem;
+  margin-bottom: 6rem;
   cursor: pointer;
 
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 576px) {
     padding: 0;
   }
 `;
 
 const Name = styled.h3`
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-align: center;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
 
   span {
     display: block;
-    font-size: 0.8rem;
-    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    margin-top: 1rem;
     font-weight: 400;
   }
 `;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { Container } from 'styles/style';
+import { Container, Overlay } from 'styles/style';
+import { revealImg } from 'animations/animations';
 
 const VideoContainer = styled(Container)`
   display: flex;
@@ -9,31 +10,28 @@ const VideoContainer = styled(Container)`
   align-items: center;
   overflow: hidden;
   padding: 10rem 0;
-
-  @media screen and (max-width: 36rem) {
-    padding: 5rem 0;
-  }
+  position: relative;
 `;
 
 const Video = styled.div`
   padding: 0 10rem;
 
-  @media screen and (max-width: 48rem) {
-    padding: 0 5rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    padding: 0 2rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    padding: 0;
+  @media screen and (max-width: 576px) {
+    padding: 0 3rem;
   }
 `;
 
 const HomeVideo = () => {
+  const sectionRef = useRef(null);
+  const overlayRef = useRef(null);
+
+  useEffect(() => {
+    revealImg(sectionRef.current, overlayRef.current);
+  }, []);
+
   return (
-    <VideoContainer bgColor="black">
+    <VideoContainer bgColor="black" ref={sectionRef}>
+      <Overlay ref={overlayRef} color="black" />
       <Video
         dangerouslySetInnerHTML={{
           __html: `

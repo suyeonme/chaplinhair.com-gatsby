@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
 import AboutUsImg from 'assets/img/about-1.jpg';
@@ -8,50 +7,36 @@ import { TitleH1, CategoryH4, Container } from 'styles/style';
 
 const Title = styled(TitleH1)`
   width: 60%;
-  font-size: 3.1rem;
-  letter-spacing: 3px;
+  font-size: 5rem;
+  letter-spacing: 0.3rem;
   line-height: 1.2;
   margin: 0 auto;
   opacity: 1;
   transform: translateY(0);
 
-  @media screen and (max-width: 64rem) {
-    width: 70%;
-    font-size: 2.5rem;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
   }
 
-  @media screen and (max-width: 48rem) {
-    font-size: 2rem;
-  }
-
-  @media screen and (max-width: 36rem) {
+  @media screen and (max-width: 576px) {
     width: 100%;
-    font-size: 1.6rem;
+    font-size: 4rem;
   }
 
-  @media screen and (max-width: 20rem) {
-    font-size: 1.4rem;
+  @media screen and (orientation: landscape) and (max-width: 812px) {
+    width: 100%;
   }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   text-align: center;
-  margin-top: 1rem;
-
+  margin-top: 2rem;
   opacity: 0;
   transform: translateY(60px);
 
-  @media screen and (max-width: 48rem) {
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 36rem) {
-    font-size: 0.9rem;
-  }
-
-  @media screen and (max-width: 20rem) {
-    font-size: 0.8rem;
+  @media screen and (max-width: 576px) {
+    font-size: 2rem;
   }
 `;
 
@@ -63,14 +48,10 @@ const AboutContainer = styled.div`
   background: url(${AboutUsImg});
   background-size: cover;
   background-position: center;
-  margin-top: 5rem;
+  margin-top: 6rem;
 
-  @media screen and (max-width: 64rem) {
+  @media screen and (max-width: 1200px) {
     padding-bottom: 60%;
-  }
-
-  @media screen and (max-width: 48rem) {
-    margin-top: 3rem;
   }
 `;
 
@@ -78,72 +59,54 @@ const TextContainer = styled.div`
   background-color: #f6f3ec;
   position: absolute;
   width: 40%;
-  top: 4rem;
-  left: 3rem;
+  top: 5rem;
+  left: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
+  padding: 4rem;
   height: 0;
   visibility: hidden;
 
-  @media screen and (max-width: 64rem) {
+  @media screen and (max-width: 1200px) {
     width: 60%;
-    top: 3rem;
   }
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     position: static;
     top: auto;
     left: auto;
-    margin-top: 2rem;
+    margin-top: 3rem;
     padding: 0;
   }
 
-  @media screen and (orientation: landscape) and (max-width: 50.75rem) {
+  @media screen and (orientation: landscape) and (max-width: 812px) {
     width: 100%;
     position: static;
     top: auto;
     left: auto;
-    margin-top: 2rem;
+    margin-top: 3rem;
     padding: 0;
   }
 
   p,
   span {
+    line-height: 2;
     opacity: 0;
     transform: translateY(60px);
   }
 
   p {
-    font-size: 1.1rem;
-    line-height: 2;
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.7rem;
-    }
+    margin-top: 2rem;
   }
 
   span {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 400;
-    line-height: 2;
     text-align: center;
-    padding-top: 1rem;
-
-    @media screen and (max-width: 48rem) {
-      padding-top: 2rem;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 0.9rem;
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 0.8rem;
-    }
+    padding-top: 2rem;
   }
 `;
 
@@ -156,30 +119,37 @@ const AboutUs = () => {
   const boxRef = useRef(null);
   const titleRef = useRef(null);
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
-
   useEffect(() => {
-    if (intersection && intersection.isIntersecting) {
-      const tl = gsap.timeline({
-        defaults: { duration: 0.7, ease: 'power2.inOut' },
-      });
+    const tl = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top center',
+      },
+    });
 
-      tl.to(titleRef.current, { duration: 0.5, opacity: 1, y: 0 })
-        .set(boxRef.current, {
-          css: { visibility: 'visible' },
-        })
-        .to(boxRef.current, { height: 'auto' })
-        .to('#fade', {
-          opacity: 1,
-          y: 0,
-          stagger: 0.3,
-        });
-    }
-  }, [intersection]);
+    tl.to(titleRef.current, {
+      duration: 0.5,
+      opacity: 1,
+      y: 0,
+      ease: 'power2.inOut',
+    })
+      .set(boxRef.current, {
+        css: { visibility: 'visible' },
+      })
+      .to(boxRef.current, {
+        height: 'auto',
+        duration: 0.7,
+        ease: 'power2.inOut',
+      })
+      .to('#fade', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.3,
+        duration: 1,
+        ease: 'power2.inOut',
+      });
+  }, []);
 
   return (
     <Container light>
@@ -188,9 +158,8 @@ const AboutUs = () => {
       <SubTitle ref={titleRef}>
         채플린 헤어를 이끄는 사람은 여러분입니다.
       </SubTitle>
-
-      <Wrapper>
-        <AboutContainer ref={sectionRef} />
+      <Wrapper ref={sectionRef}>
+        <AboutContainer />
         <TextContainer ref={boxRef}>
           <TitleH1 id="fade">Chaplin Hair is,</TitleH1>
           <p id="fade">

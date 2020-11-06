@@ -6,21 +6,23 @@ import PropTypes from 'prop-types';
 const PrimaryStyle = styled.div`
   display: inline-block;
   position: relative;
-  padding: 1.4rem 1.5rem;
-  border-radius: 0.5rem;
-  font-size: 0.7rem;
   font-family: Poppins;
   font-weight: 600;
-  letter-spacing: 0.3rem;
-  word-spacing: 0.3rem;
   text-decoration: none;
-  overflow: hidden;
   color: black;
+  padding: 2.2rem 2.3rem;
+  border-radius: 0.5rem;
   border: 1px solid black;
+  overflow: hidden;
   transition: color background-color 0.8s;
-
   opacity: ${(props) => (props.isAnimated ? 0 : 1)};
   transform: ${(props) => props.isAnimated && 'translateY(60px)'};
+
+  a {
+    font-size: 1.1rem;
+    letter-spacing: 0.5rem;
+    word-spacing: 0.5rem;
+  }
 
   &::before {
     content: '';

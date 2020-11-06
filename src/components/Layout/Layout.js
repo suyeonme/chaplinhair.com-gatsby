@@ -22,33 +22,43 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     cursor: none;
+
+    ${'' /* 10px = 1rem */}
+    font-size: 62.5%; 
+
+    @media (max-width: 992px) {
+      ${'' /* 9px = 1rem */}
+      font-size: 56.25%; 
+    }
+
+    @media (max-width: 768px) {
+      ${'' /* 8px = 1rem */}
+      font-size: 50%; 
+    }
+
+    @media (max-width: 576px) {
+      ${'' /* 7px = 1rem */}
+      font-size: 43.75%; 
+    }
+
+    @media (max-width: 320px) {
+      ${'' /* 5.5px = 1rem */}
+      font-size: 37%;
+    }
   }
 
   body {
-    font-size: 62.5%; 
     font-family: 'Poppins', 'Spoqa Han Sans', sans-serif;
     font-weight: 300;
     color: black;
     overflow-x: hidden;
-
-    @media screen and (max-width: 64rem) {
-      font-size: 56.25%;
-    }
-
-    @media screen and (max-width: 48rem) {
-      font-size: 50%;
-    }
-
-    @media screen and (max-width: 36rem) {
-      font-size: 31.25%; 
-    }
-
-    @media screen and (max-width: 20rem) {
-      font-size: 25%; 
-    }
   }
 
-  a{
+  p, a, li {
+    font-size: 1.7rem;
+  }
+
+  a {
     text-decoration:none;
     color:inherit;
     cursor: none;
