@@ -88,6 +88,18 @@ const TextContainer = styled.div`
     font-size: 1.2rem;
     letter-spacing: 0;
     margin-left: 1rem;
+
+    @media screen and (max-width: 576px) {
+      display: block;
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 812px) {
+      display: block;
+      margin-left: 0;
+      margin-top: 1rem;
+    }
   }
 
   p {

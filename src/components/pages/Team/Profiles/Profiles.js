@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    justify-content: space-around;
+  }
 `;
 
 const Profiles = () => {

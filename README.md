@@ -12,10 +12,8 @@ It is available at [https://chaplinhair.com](https://chaplinhair.com).
 ### Libraries
 
 - styled-components
-- gsap
-- intersection-observer polyfill
+- gsap & scrollTrigger
 - styled-reset
-- react-use
 - react-transition-group
 - react-helmet
 
@@ -24,7 +22,6 @@ It is available at [https://chaplinhair.com](https://chaplinhair.com).
 - gatsby-plugin-google-analytics
 - gatsby-plugin-html-attributes
 - gatsby-plugin-layout
-- gatsby-plugin-prefetch-google-fonts
 - gatsby-plugin-resolve-src
 - gatsby-plugin-robots-txt
 - gatsby-plugin-sitemap

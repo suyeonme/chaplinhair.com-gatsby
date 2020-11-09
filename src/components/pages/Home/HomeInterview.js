@@ -3,12 +3,18 @@ import styled from 'styled-components';
 import gsap from 'gsap';
 
 import partnerImg from 'assets/img/interview.jpg';
-import { CategoryH4, Container, FirstLetter, Overlay } from 'styles/style';
+import { CategoryH4, FirstLetter, Overlay } from 'styles/style';
 
-const InterviewContainer = styled(Container)`
+const Container = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 10rem;
+  width: 100%;
+  height: auto;
+  padding: 10rem 6rem;
+  color: black;
+  background-color: #f6f3ec;
+  overflow: hidden;
 
   @media screen and (max-width: 1200px) {
     padding: 10rem 6rem;
@@ -149,7 +155,7 @@ const HomeInterview = () => {
   }, []);
 
   return (
-    <InterviewContainer light>
+    <Container ref={sectionRef}>
       <TextContainer>
         <CategoryH4 left>Interview</CategoryH4>
         <H2 id="interview">JEONG HAEMIN</H2>
@@ -162,10 +168,10 @@ const HomeInterview = () => {
           해볼 만하지 않을까요?
         </Quote>
       </TextContainer>
-      <PartnerImg ref={sectionRef}>
+      <PartnerImg>
         <Overlay ref={overlayRef} color="#f6f3ec" />
       </PartnerImg>
-    </InterviewContainer>
+    </Container>
   );
 };
 

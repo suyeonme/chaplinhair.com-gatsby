@@ -21,6 +21,11 @@ const IconContainer = styled.div`
 const Icon = styled.img`
   width: 13rem;
   height: 13rem;
+
+  @media screen and (max-width: 576px) {
+    width: 10rem;
+    height: 10rem;
+  }
 `;
 
 const Title = styled.h2`

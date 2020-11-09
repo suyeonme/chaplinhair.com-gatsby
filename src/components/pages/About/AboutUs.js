@@ -152,13 +152,13 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <Container light>
+    <Container light ref={sectionRef}>
       <CategoryH4>About Us</CategoryH4>
       <Title>The person who leads Chaplin Hair is you.</Title>
       <SubTitle ref={titleRef}>
         채플린 헤어를 이끄는 사람은 여러분입니다.
       </SubTitle>
-      <Wrapper ref={sectionRef}>
+      <Wrapper>
         <AboutContainer />
         <TextContainer ref={boxRef}>
           <TitleH1 id="fade">Chaplin Hair is,</TitleH1>

@@ -60,7 +60,7 @@ export const Item = styled.div`
   }
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   a {
@@ -85,5 +85,5 @@ export const Item = styled.div`
 export const SocialContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
